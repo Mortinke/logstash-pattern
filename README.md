@@ -1,0 +1,1 @@
+gc-logstash-pattern
