@@ -1,0 +1,195 @@
+# Total time for which application threads were stopped: 0,0013089 seconds
+CASSANDRA_GC_APPLI_STOPPED_SEC  ((?<= Total time for which application threads were stopped:) \d+\.\d+)
+# Application time: 1,0350815 seconds
+CASSANDRA_GC_APPLI_CONCUR_SEC   ((?<= Application time:) \d+\.\d+)
+# Heap before GC invocations=307
+CASSANDRA_GC_NUMBER             (.+\n.+ (invocations=)(?<gc_number>(\d+)))
+
+###################
+# all pattern for CASSANDRA_HEAP_BEFORE_GC and CASSANDRA_HEAP_AFTER_GC
+###################
+# CMS
+# par new generation total 235968K, used 221084K [0x00000000c0000000, 0x00000000d0000000, 0x00000000d0000000)
+NEW_GEN_BEFORE_GC               (.+\n\s+(par\s+new\s+generation\s+total)\s+(?<new_gen_total_before_gc>(\d+))(K, used )(?<new_gen_used_before_gc>(\d+))K)
+NEW_GEN_AFTER_GC                (.+\n.+\n\s+(par\s+new\s+generation\s+total)\s+(?<new_gen_total_after_gc>(\d+))(K, used )(?<new_gen_used_after_gc>(\d+))K)
+
+# CMS
+# eden space 209792K, 100% used [0x00000000c0000000, 0x00000000ccce0000, 0x00000000ccce0000)
+EDEN_SPACE_BEFORE_GC            (.+\n\s+(eden\s+space)\s+(?<eden_total_before_gc>(\d+))(K,\s+)(?<eden_used_before_gc>(\d+))%)
+EDEN_SPACE_AFTER_GC             (.+\n\s+(eden\s+space)\s+(?<eden_total_after_gc>(\d+))(K,\s+)(?<eden_used_after_gc>(\d+))%)
+
+# CMS
+# from space 26176K, 43% used [0x00000000ce670000, 0x00000000cf177228, 0x00000000d0000000)
+ACTIVE_SURVIVOR_BEFORE_GC       (.+\n\s+(from\s+space)\s+(?<act_survivor_total_before_gc>(\d+))(K,\s+)(?<act_survivor_used_before_gc>(\d+))%)
+ACTIVE_SURVIVOR_AFTER_GC        (.+\n\s+(from\s+space)\s+(?<act_survivor_total_after_gc>(\d+))(K,\s+)(?<act_survivor_used_after_gc>(\d+))%)
+
+# CMS
+# to space 26176K, 0% used [0x00000000ccce0000, 0x00000000ccce0000, 0x00000000ce670000)
+INACTIVE_SURVIVOR_BEFORE_GC     (.+\n\s+(to\s+space)\s+(?<inact_survivor_total_before_gc>(\d+))(K,\s+)(?<inact_survivor_used_before_gc>(\d+))%)
+INACTIVE_SURVIVOR_AFTER_GC      (.+\n\s+(to\s+space)\s+(?<inact_survivor_total_after_gc>(\d+))(K,\s+)(?<inact_survivor_used_after_gc>(\d+))%)
+
+# CMS
+# concurrent mark-sweep generation total 786432K, used 449940K [0x00000000d0000000, 0x0000000100000000, 0x0000000100000000)
+OLD_GEN_BEFORE_GC               (.+\n\s+(concurrent mark-sweep generation total)\s+(?<old_gen_total_before_gc>(\d+))(K,\s+used\s+)(?<old_gen_used_before_gc>(\d+))K)
+OLD_GEN_AFTER_GC                (.+\n\s+(concurrent mark-sweep generation total)\s+(?<old_gen_total_after_gc>(\d+))(K,\s+used\s+)(?<old_gen_used_after_gc>(\d+))K)
+
+# G1
+#  garbage-first heap   total 8388608K, used 7452338K [0x00000005c0000000, 0x00000007c0000000, 0x00000007c0000000)
+HEAP_SIZE_BEFORE_GC             (.+\n\s+garbage-first\s+heap\s+total\s+(?<heap_total_after_gc>(\d+))K,\s+used\s+(?<heap_used_before_gc>(\d+))K)
+
+# G1
+#   region size 4096K, 963 young (3944448K), 22 survivors (90112K)
+REGION_SIZE_BEFORE_GC           (.+\n\s+region\s+size\s+(?<region_size_before_gc>(\d+))K,\s+(?<new_gen_region_count_before_gc>(\d+))\s+young\s+\((?<new_gen_used_before_gc>(\d+))K\),\s+(?<survivor_region_count_before_gc>(\d+))\s+survivors\s+\((?<survivor_used_before_gc>(\d+))K\))
+#  garbage-first heap total 8388608K, used 2423887K [0x00000005c0000000, 0x00000007c0000000, 0x00000007c0000000)
+#  region size 4096K, 23 young (94208K), 23 survivors (94208K)
+REGION_SIZE_AFTER_GC            (.+\n\s+region\s+size\s+(?<region_size_after_gc>(\d+))K,\s+(?<new_gen_region_count_after_gc>(\d+))\s+young\s+\((?<new_gen_used_after_gc>(\d+))K\),\s+(?<survivor_region_count_after_gc>(\d+))\s+survivors\s+\((?<survivor_used_before_gc>(\d+))K\)\n)
+
+# CMS and G1
+# Metaspace used 30259K, capacity 30884K, committed 31104K, reserved 1077248K
+METASPACE_BEFORE_GC             (.+\n\s+(Metaspace\s+used)\s+(?<meta_used_before_gc>(\d+))(K,\s+capacity\s+)(?<meta_capacity_before_gc>(\d+))(K,\s+committed\s+)(?<meta_committed_before_gc>(\d+))(K,\s+reserved\s+)(?<meta_reserved_before_gc>(\d+))K\n)
+METASPACE_AFTER_GC              (.+\n\s+(Metaspace\s+used)\s+(?<meta_used_after_gc>(\d+))(K,\s+capacity\s+)(?<meta_capacity_after_gc>(\d+))(K,\s+committed\s+)(?<meta_committed_after_gc>(\d+))(K,\s+reserved\s+)(?<meta_reserved_after_gc>(\d+))K\n)
+METASPACE_BEFORE_GC_G1          (\n\s+(Metaspace\s+used)\s+(?<meta_used_before_gc>(\d+))(K,\s+capacity\s+)(?<meta_capacity_before_gc>(\d+))(K,\s+committed\s+)(?<meta_committed_before_gc>(\d+))(K,\s+reserved\s+)(?<meta_reserved_before_gc>(\d+))K\n)
+METASPACE_AFTER_GC_G1           (\s+(Metaspace\s+used)\s+(?<meta_used_after_gc>(\d+))(K,\s+capacity\s+)(?<meta_capacity_after_gc>(\d+))(K,\s+committed\s+)(?<meta_committed_after_gc>(\d+))(K,\s+reserved\s+)(?<meta_reserved_before_gc>(\d+))K\n)
+
+# class space used 3243K, capacity 3364K, committed 3456K, reserved 1048576K
+CLASS_SPACE_BEFORE_GC           (\s+(class\s+space\s+used)\s+(?<class_used_before_gc>(\d+))(K,\s+capacity\s+)(?<class_capacity_before_gc>(\d+))(K,\s+committed\s+)(?<class_committed_before_gc>(\d+))(K,\s+reserved\s+)(?<class_reserved_before_gc>(\d+))K)
+CLASS_SPACE_AFTER_GC            (\s+(class\s+space\s+used)\s+(?<class_used_after_gc>(\d+))(K,\s+capacity\s+)(?<class_capacity_after_gc>(\d+))(K,\s+committed\s+)(?<class_committed_after_gc>(\d+))(K,\s+reserved\s+)(?<class_reserved_after_gc>(\d+))K)
+
+# G1
+#  [Eden: 4332.0M(4332.0M)->0.0B(4356.0M) Survivors: 80.0M->68.0M Heap: 7285.1M(8192.0M)->2943.4M(8192.0M)]
+CASSANDRA_HEAP_POOLS_AFTER_GC         (\s+\[Eden:\s+(?<eden_used_before_gc>(\d+\.\d+))(M|B|K)\((?<eden_total_before_gc>(\d+\.\d+))(M|B|K)\)->(?<eden_used_after_gc>(\d+\.\d+))(B|M|K)\((?<eden_total_after_gc>(\d+\.\d+))(M|B|K)\)\s+Survivors:\s+(?<survivor_total_before_gc>(\d+\.\d+))(M|B|K)->(?<survivor_total_after_gc>(\d+\.\d+))(M|B|K)\s+Heap:\s+(?<heap_used_before_gc>(\d+\.\d+))M\((?<heap_total_before_gc>(\d+\.\d+))M\)->(?<heap_used_after_gc>(\d+\.\d+))M\((?<heap_total_after_gc>(\d+\.\d+))M\)\]\n)
+
+
+CASSANDRA_HEAP_BEFORE_GC        %{CASSANDRA_GC_APPLI_CONCUR_SEC:appli_concurrent_sec} %{CASSANDRA_GC_NUMBER} %{NEW_GEN_BEFORE_GC} %{EDEN_SPACE_BEFORE_GC} %{ACTIVE_SURVIVOR_BEFORE_GC} %{INACTIVE_SURVIVOR_BEFORE_GC} %{OLD_GEN_BEFORE_GC} %{METASPACE_BEFORE_GC} %{CLASS_SPACE_BEFORE_GC}
+CASSANDRA_HEAP_G1_BEFORE_GC     %{CASSANDRA_GC_APPLI_CONCUR_SEC:appli_concurrent_sec} %{CASSANDRA_GC_NUMBER} %{HEAP_SIZE_BEFORE_GC} %{REGION_SIZE_BEFORE_GC}%{METASPACE_BEFORE_GC_G1}%{CLASS_SPACE_BEFORE_GC}
+CASSANDRA_HEAP_AFTER_GC         %{NEW_GEN_AFTER_GC} %{EDEN_SPACE_AFTER_GC} %{ACTIVE_SURVIVOR_AFTER_GC} %{INACTIVE_SURVIVOR_AFTER_GC} %{OLD_GEN_AFTER_GC} %{METASPACE_AFTER_GC} %{CLASS_SPACE_AFTER_GC}
+
+###################
+# all pattern for CASSANDRA_GC_STATS G1 and CMS
+###################
+# 346044,442: [GC (Allocation Failure) Before GC:
+CASSANDRA_GC_REASON             ((?<=\[).+(?= Before GC:))
+# 498329.015: [GC pause (GCLocker Initiated GC) (young)
+# 659451.728: [GC pause (GCLocker Initiated GC) (young) (initial-mark)
+CASSANDRA_G1_GC_REASON          (.+\s+\[(?<gc_action>(\w+\s+\w+))\s+\((?<gc_reason>(\w+\s+\w+\s+\w+))\)\s+\((?<gc_pool>(\w+))\)(\s+\((?<gc_action2>(\w+-\w+))\))?)
+# Heap after GC invocations=20009 (full 1):
+CASSANDRA_G1_GC_NUMBER          (.+(invocations=)(?<gc_number>(\d+)).+\n)
+
+
+# Total Free Space: 5994430\nMax Chunk Size: 5725055\nNumber of Blocks: 34\nAv. Block Size: 176306\nTree Height: 11\n
+OLD_GEN_FRAG_STATS_BEFORE_GC    (.+\n.+\n.+\nTotal\s+Free\s+Space:\s+(?<old_gen_free_frag_before_gc>(\d+))\nMax\s+Chunk Size:\s+(?<old_gen_max_chunk_before_gc>(\d+))\nNumber\s+of\s+Blocks:\s+(?<old_gen_block_numbers_before_gc>(\d+))\nAv\.\s+Block\s+Size:\s+(?<old_gen_avg_block_size_before_gc>(\d+))\nTree\s+Height:\s+(?<old_gen_tree_height_before_gc>(\d+))\n)
+OLD_GEN_FRAG_STATS_AFTER_GC     (.+\n.+\n.+\n.+:\s+(?<old_gen_free_frag_after_gc>(\d+))\nMax\s+Chunk Size:\s+(?<old_gen_max_chunk_after_gc>(\d+))\nNumber\s+of\s+Blocks:\s+(?<old_gen_block_numbers_after_gc>(\d+))\nAv\.\s+Block\s+Size:\s+(?<old_gen_avg_block_size_after_gc>(\d+))\nTree\s+Height:\s+(?<old_gen_tree_height_after_gc>(\d+))\n)
+
+# CMS and G1
+# Desired survivor size 308281344 bytes, new threshold 15 (max 15) - age 1: 1990184 bytes, 1990184 total ......
+CASSANDRA_SURVIVOR_STATS        (.+\nDesired\s+survivor\s+size\s+(?<desired_survivor_size>(\d+))\s+bytes,\s+new\s+threshold\s+(?<cur_threshold_size>(\d+))\s+\(max\s+(?<max_threshold_size>(\d+))\)\n(?<survivor_stats>(\-\s+age\s+\d+:\s+\d+\s+bytes,\s+\d+\s+total\n)+))
+CASSANDRA_G1_SURVIVOR_STATS     (\nDesired\s+survivor\s+size\s+(?<desired_survivor_size>(\d+))\s+bytes,\s+new\s+threshold\s+(?<cur_threshold_size>(\d+))\s+\(max\s+(?<max_threshold_size>(\d+))\)\n(?<survivor_stats>(\-\s+age\s+\d+:\s+\d+\s+bytes,\s+\d+\s+total\n)+))
+CASSANDRA_G1_MINOR_GC_DURATION  (,\s+(?<gc_duration>(\d+\.\d+))\s+secs\]\n)
+
+# : 332506K->40960K(368640K), 0.0816023 secs] 1032579K->750284K(2031616K)
+CASSANDRA_GC_NEW_GEN_STATS      (:\s+(?<new_gen_used_before_gc>(\d+))K\->(?<new_gen_used_after_gc1>(\d+))K\((?<new_gen_total_after_gc1>(\d+))K\),\s+(?<minor_gc_cpu_duration>(\d+\.\d+)))
+
+# 1032579K->750284K(2031616K)
+CASSANDRA_GC_HEAP_STATS         (.+\]\s+(?<heap_used_before_gc>(\d+))K\->(?<heap_used_after_gc>(\d+))K\((?<heap_total_after_gc>(\d+))K)
+
+#  G1 young and mixed
+#  1025.906: [G1Ergonomics (CSet Construction) start choosing CSet, _pending_cards: 46580, predicted base time: 19.44 ms, remaining time: 180.56 ms, target pause time: 200.00 ms]
+#  1025.906: [G1Ergonomics (CSet Construction) add young regions to CSet, eden: 1199 regions, survivors: 30 regions, predicted young region time: 29.87 ms]
+#  56867.660: [G1Ergonomics (CSet Construction) finish adding old regions to CSet, reason: reclaimable percentage not over threshold, old: 48 regions, max: 205 regions, reclaimable: 856486152 bytes (9.97 %), threshold: 10.00 %]
+#  56803.094: [G1Ergonomics (CSet Construction) finish adding old regions to CSet, reason: old CSet region num reached max, old: 205 regions, max: 205 regions]
+#  1025.906: [G1Ergonomics (CSet Construction) finish choosing CSet, eden: 1199 regions, survivors: 30 regions, old: 0 regions, predicted pause time: 49.31 ms, target pause time: 200.00 ms]
+#  61953.961: [G1Ergonomics (Concurrent Cycles) request concurrent cycle initiation, reason: occupancy higher than threshold, occupancy: 3867148288 bytes, allocation request: 0 bytes, threshold: 3865470525 bytes (45.00 %), source: end of GC]
+#  47981.933: [G1Ergonomics (Mixed GCs) start mixed GCs, reason: candidate old regions available, candidate old regions: 341 regions, reclaimable: 1035999432 bytes (12.06 %), threshold: 10.00 %]
+#  56867.730: [G1Ergonomics (Mixed GCs) do not continue mixed GCs, reason: reclaimable percentage not over threshold, candidate old regions: 255 regions, reclaimable: 856486152 bytes (9.97 %), threshold: 10.00 %]
+#  56803.224: [G1Ergonomics (Mixed GCs) continue mixed GCs, reason: candidate old regions available, candidate old regions: 303 regions, reclaimable: 1036762360 bytes (12.07 %), threshold: 10.00 %]
+CASSANDRA_G1_ERGONOMICS             (\s?\d+\.\d+:\s+\[G1Ergonomics\s+\(((CSet\s+Construction)|(Mixed\s+GCs))\))
+CASSANDRA_G1_CHOOS_CSET_START       %{CASSANDRA_G1_ERGONOMICS}(\s+start\s+choosing\s+CSet,\s+_pending_cards:\s+(?<g1_pending_cards>(\d+)),\s+predicted\s+base\s+time:\s+(?<gc_choosing_cset_duration>(\d+\.\d+))\s+ms,\s+remaining\s+time:\s+(?<gc_choosing_cset_remaing>(\d+\.\d+))\s+ms,\s+target\s+pause\s+time:\s+(?<gc_choosing_cset_target>(\d+\.\d+))\s+ms\]\n)
+CASSANDRA_G1_ADD_Y_REGIONS_TO_CSET  %{CASSANDRA_G1_ERGONOMICS}(\s+add\s+young\s+regions\s+to\s+CSet,\s+eden:\s+(?<g1_added_eden_regions>(\d+))\s+regions,\s+survivors:\s+(?<g1_added_survivor_regions>(\d+))\s+regions,\s+predicted\s+young\s+region\s+time:\s+(?<gc_predict_duration>(\d+\.\d+))\s+ms\]\n)
+CASSANDRA_G1_ADD_O_REGIONS_TO_CSET  %{CASSANDRA_G1_ERGONOMICS}(\s+finish\s+adding\s+old\s+regions\s+to\s+CSet,\s+reason:(\s+\w+){5,6},\s+old:\s+(?<g1_added_old_regions>(\d+))\s+regions,\s+max:\s+(?<g1_max_old_regions>(\d+))\s+regions(,\s+reclaimable:\s+(?<g1_reclaimable_bytes>(\d+))\s+bytes\s+\((?<g1_reclaimable_percent>(\d+\.\d+))\s+%\),\s+threshold:\s+(?<g1_reclaimable_threshold>(\d+\.\d+))\s+%)?\]\n)
+CASSANDRA_G1_CHOOS_CSET_END         %{CASSANDRA_G1_ERGONOMICS}(\s+finish\s+choosing\s+CSet,\s+eden:\s+(?<g1_processed_eden_regions>(\d+))\s+regions,\s+survivors:\s+(?<g1_processed_survivor_regions>(\d+))\s+regions,\s+old:\s+(?<g1_processed_old_regions>(\d+))\s+regions,\s+predicted\s+pause\s+time:\s+(?<gc_predict_pause_duration>(\d+\.\d+))\s+ms,\s+target\s+pause\s+time:\s+(?<gc_choosing_cset_target1>(\d+\.\d+))\s+ms\]\n)
+CASSANDRA_G1_CONTINUE_MIXED_GC      %{CASSANDRA_G1_ERGONOMICS}(\s+(do\s+not\s+)?continue\s+mixed\s+GCs,\s+reason:(\s+\w+){4,5},\s+candidate\s+old\s+regions:\s+(?<g1_reclaimable_old_regions>(\d+))\s+regions,\s+reclaimable:\s+(?<g1_reclaimable_bytes1>(\d+))\s+bytes\s+\((?<g1_reclaimable_percent1>(\d+\.\d+))\s+%\),\s+threshold:\s+(?<g1_reclaimable_threshold1>(\d+\.\d+))\s+%\]\n)
+CASSANDRA_G1_ERGONOMICS_STATS       %{CASSANDRA_G1_CHOOS_CSET_START}%{CASSANDRA_G1_ADD_Y_REGIONS_TO_CSET}%{CASSANDRA_G1_ADD_O_REGIONS_TO_CSET}?%{CASSANDRA_G1_CHOOS_CSET_END}%{CASSANDRA_G1_CONTINUE_MIXED_GC}?
+
+# G1
+# [Parallel Time: 21.8 ms, GC Workers: 10]
+#    [GC Worker Start (ms): Min: 506620870.6, Avg: 506620870.7, Max: 506620870.7, Diff: 0.1]
+#    [Ext Root Scanning (ms): Min: 0.6, Avg: 0.8, Max: 1.7, Diff: 1.1, Sum: 8.3]
+#    [SATB Filtering (ms): Min: 0.0, Avg: 0.1, Max: 1.3, Diff: 1.3, Sum: 1.3]
+#    [Code Root Marking (ms): Min: 0.0, Avg: 2.7, Max: 8.0, Diff: 7.9, Sum: 27.4]
+#    [Update RS (ms): Min: 5.5, Avg: 6.5, Max: 6.9, Diff: 1.4, Sum: 65.3]
+#        [Processed Buffers: Min: 35, Avg: 50.9, Max: 87, Diff: 52, Sum: 509]
+#    [Scan RS (ms): Min: 0.1, Avg: 0.3, Max: 0.3, Diff: 0.3, Sum: 2.8]
+#    [Code Root Scanning (ms): Min: 0.0, Avg: 0.0, Max: 0.0, Diff: 0.0, Sum: 0.1]
+#    [Object Copy (ms): Min: 18.2, Avg: 18.5, Max: 18.6, Diff: 0.4, Sum: 184.8]
+#    [Termination (ms): Min: 0.0, Avg: 0.0, Max: 0.0, Diff: 0.0, Sum: 0.0]
+#    [GC Worker Other (ms): Min: 0.0, Avg: 0.1, Max: 0.1, Diff: 0.1, Sum: 0.5]
+#    [GC Worker Total (ms): Min: 26.1, Avg: 26.2, Max: 26.2, Diff: 0.1, Sum: 261.6]
+#    [GC Worker End (ms): Min: 599288913.6, Avg: 599288913.6, Max: 599288913.6, Diff: 0.1]
+CASSANDRA_G1_WORKER_STATS            (\s+\[Parallel\s+Time:\s+(?<gc_parallel_time>(\d+\.\d+))\s+ms,\s+GC\s+Workers:\s+(?<gc_workers>(\d+))\]\n)
+CASSANDRA_G1_WORKER_START_STATS      (\s+\[GC\s+Worker\s+Start\s+\(ms\):\s+Min:\s+(?<gc_worker_start_min>(\d+\.\d+)),\s+Avg:\s+(?<gc_worker_start_avg>(\d+\.\d+)),\s+Max:\s+(?<gc_worker_start_max>(\d+\.\d+)),\s+Diff:\s+(?<gc_worker_start_diff>(\d+\.\d+))\]\n)
+CASSANDRA_G1_EXT_ROOT_SCAN_STATS     (\s+\[Ext\s+Root\s+Scanning\s+\(ms\):\s+Min:\s+(?<gc_ext_root_scan_min>(\d+\.\d+)),\s+Avg:\s+(?<gc_ext_root_scan_avg>(\d+\.\d+)),\s+Max:\s+(?<gc_ext_root_scan_max>(\d+\.\d+)),\s+Diff:\s+(?<gc_ext_root_scan_diff>(\d+\.\d+)),\s+Sum:\s+(?<gc_ext_root_scan_sum>(\d+\.\d+))\]\n)
+CASSANDRA_G1_EXT_ROOT_MARK_STATS     (\s+\[Code\s+Root\s+Marking\s+\(ms\):\s+Min:\s+(?<gc_ext_root_mark_min>(\d+\.\d+)),\s+Avg:\s+(?<gc_ext_root_mark_avg>(\d+\.\d+)),\s+Max:\s+(?<gc_ext_root_mark_max>(\d+\.\d+)),\s+Diff:\s+(?<gc_ext_root_mark_diff>(\d+\.\d+)),\s+Sum:\s+(?<gc_ext_root_mark_sum>(\d+\.\d+))\]\n)
+CASSANDRA_G1_SATB_FILTER_STATS       (\s+\[SATB\s+Filtering\s+\(ms\):\s+Min:\s+(?<gc_satb_filter_min>(\d+\.\d+)),\s+Avg:\s+(?<gc_satb_filter_avg>(\d+\.\d+)),\s+Max:\s+(?<gc_satb_filter_max>(\d+\.\d+)),\s+Diff:\s+(?<gc_satb_filter_diff>(\d+\.\d+)),\s+Sum:\s+(?<gc_satb_filter_sum>(\d+\.\d+))\]\n)
+CASSANDRA_G1_UPDATE_RS_STATS         (\s+\[Update\s+RS\s+\(ms\):\s+Min:\s+(?<gc_update_rs_min>(\d+\.\d+)),\s+Avg:\s+(?<gc_update_rs_avg>(\d+\.\d+)),\s+Max:\s+(?<gc_update_rs_max>(\d+\.\d+)),\s+Diff:\s+(?<gc_update_rs_diff>(\d+\.\d+)),\s+Sum:\s+(?<gc_update_rs_sum>(\d+\.\d+))\]\n)
+CASSANDRA_G1_PROCESS_BUFFER_STATS    (\s+\[Processed\s+Buffers:\s+Min:\s+(?<gc_updated_process_buffer_min>(\d+)),\s+Avg:\s+(?<gc_updated_process_buffer_avg>(\d+\.\d+)),\s+Max:\s+(?<gc_updated_process_buffer_max>(\d+)),\s+Diff:\s+(?<gc_updated_process_buffer_diff>(\d+)),\s+Sum:\s+(?<gc_updated_process_buffer_sum>(\d+))\]\n)
+CASSANDRA_G1_SCAN_RS_STATS           (\s+\[Scan\s+RS\s+\(ms\):\s+Min:\s+(?<gc_scan_rs_min>(\d+\.\d+)),\s+Avg:\s+(?<gc_scan_rs_avg>(\d+\.\d+)),\s+Max:\s+(?<gc_scan_rs_max>(\d+\.\d+)),\s+Diff:\s+(?<gc_scan_rs_diff>(\d+\.\d+)),\s+Sum:\s+(?<gc_scan_rs_sum>(\d+\.\d+))\]\n)
+CASSANDRA_G1_CODE_ROOT_SCAN_STATS    (\s+\[Code\s+Root\s+Scanning\s+\(ms\):\s+Min:\s+(?<gc_code_root_scan_min>(\d+\.\d+)),\s+Avg:\s+(?<gc_code_root_scan_avg>(\d+\.\d+)),\s+Max:\s+(?<gc_code_root_scan_max>(\d+\.\d+)),\s+Diff:\s+(?<gc_code_root_scan_diff>(\d+\.\d+)),\s+Sum:\s+(?<gc_code_root_scan_sum>(\d+\.\d+))\]\n)
+CASSANDRA_G1_OBJECT_COPY_STATS        (\s+\[Object\s+Copy\s+\(ms\):\s+Min:\s+(?<gc_object_copy_min>(\d+\.\d+)),\s+Avg:\s+(?<gc_object_copy_avg>(\d+\.\d+)),\s+Max:\s+(?<gc_object_copy_max>(\d+\.\d+)),\s+Diff:\s+(?<gc_object_copy_diff>(\d+\.\d+)),\s+Sum:\s+(?<gc_object_copy_sum>(\d+\.\d+))\]\n)
+CASSANDRA_G1_TERMINATION_STATS        (\s+\[Termination\s+\(ms\):\s+Min:\s+(?<gc_termination_min>(\d+\.\d+)),\s+Avg:\s+(?<gc_termination_avg>(\d+\.\d+)),\s+Max:\s+(?<gc_termination_max>(\d+\.\d+)),\s+Diff:\s+(?<gc_termination_diff>(\d+\.\d+)),\s+Sum:\s+(?<gc_termination_sum>(\d+\.\d+))\]\n)
+CASSANDRA_G1_WORKER_OTHER_STATS       (\s+\[GC\s+Worker\s+Other\s+\(ms\):\s+Min:\s+(?<gc_worker_other_min>(\d+\.\d+)),\s+Avg:\s+(?<gc_worker_other_avg>(\d+\.\d+)),\s+Max:\s+(?<gc_worker_other_max>(\d+\.\d+)),\s+Diff:\s+(?<gc_worker_other_diff>(\d+\.\d+)),\s+Sum:\s+(?<gc_worker_other_sum>(\d+\.\d+))\]\n)
+CASSANDRA_G1_WORKER_TOTAL_STATS       (\s+\[GC\s+Worker\s+Total\s+\(ms\):\s+Min:\s+(?<gc_worker_total_min>(\d+\.\d+)),\s+Avg:\s+(?<gc_worker_total_avg>(\d+\.\d+)),\s+Max:\s+(?<gc_worker_total_max>(\d+\.\d+)),\s+Diff:\s+(?<gc_worker_total_diff>(\d+\.\d+)),\s+Sum:\s+(?<gc_worker_total_sum>(\d+\.\d+))\]\n)
+CASSANDRA_G1_WORKER_END_STATS         (\s+\[GC\s+Worker\s+End\s+\(ms\):\s+Min:\s+(?<gc_worker_end_min>(\d+\.\d+)),\s+Avg:\s+(?<gc_worker_end_avg>(\d+\.\d+)),\s+Max:\s+(?<gc_worker_end_max>(\d+\.\d+)),\s+Diff:\s+(?<gc_worker_end_diff>(\d+\.\d+))\]\n)
+
+# G1
+#    [Code Root Fixup: 0.2 ms]
+#    [Code Root Migration: 0.1 ms]
+#    [Code Root Purge: 0.0 ms]
+#    [Clear CT: 0.6 ms]
+#    [Other: 1.7 ms]
+#        [Choose CSet: 0.0 ms]
+#        [Ref Proc: 0.2 ms]
+#        [Ref Enq: 0.0 ms]
+#        [Redirty Cards: 0.2 ms]
+#        [Free CSet: 0.8 ms]
+CASSANDRA_G1_CODE_ROOT_STATS          (\s+\[Code\s+Root\s+Fixup:\s+(?<gc_code_root_fixup>(\d+\.\d+))\s+ms\]\n\s+\[Code\s+Root\s+Migration:\s+(?<gc_code_root_migration>(\d+\.\d+))\s+ms\]\n\s+\[Code\s+Root\s+Purge:\s+(?<gc_code_root_purge>(\d+\.\d+))\s+ms\]\n)
+CASSANDRA_G1_CLEAR_CT                 (\s+\[Clear\s+CT:\s+(?<gc_clear_ct>(\d+\.\d+))\s+ms\]\n)
+CASSANDRA_G1_OTHER_STATS              (\s+\[Other:\s+(?<gc_other_duration>(\d+\.\d+))\s+ms\]\n\s+\[Choose\s+CSet:\s+(?<gc_choose_cset>(\d+\.\d+))\s+ms\]\n\s+\[Ref\s+Proc:\s+(?<gc_ref_proc>(\d+\.\d+))\s+ms\]\n\s+\[Ref\s+Enq:\s+(?<gc_ref_enq>(\d+\.\d+))\s+ms\]\n\s+\[Redirty\s+Cards:\s+(?<gc_redirty_cards>(\d+\.\d+))\s+ms\]\n\s+\[Free\s+CSet:\s+(?<gc_free_cset>(\d+\.\d+))\s+ms\]\n)
+
+# CMS and G1
+#, 0.0129607 secs] [Times: user=0.02 sys=0.00, real=0.01 secs]
+CASSANDRA_GC_DURATION           (.+\s+(?<gc_duration>(\d+\.\d+))\s+secs.+user=(?<user_gc_duration>(\d+\.\d+))\s+sys=(?<sys_gc_duration>(\d+\.\d+)),\s+real=(?<real_gc_duration>(\d+\.\d+)))
+#  [Times: user=0.04 sys=0.00, real=0.01 secs]
+CASSANDRA_G1_GC_DURATION		(\n.+\n\s+\[Times:\s+user=(?<user_gc_duration>(\d+\.\d+))\s+sys=(?<sys_gc_duration>(\d+\.\d+)),\s+real=(?<real_gc_duration>(\d+\.\d+))\s+secs\])
+
+# CMS and G1
+CASSANDRA_GC_STATS              %{CASSANDRA_GC_REASON:gc_reason} %{OLD_GEN_FRAG_STATS_BEFORE_GC}%{CASSANDRA_SURVIVOR_STATS}%{CASSANDRA_GC_NEW_GEN_STATS}%{CASSANDRA_GC_HEAP_STATS}%{OLD_GEN_FRAG_STATS_AFTER_GC}%{CASSANDRA_GC_DURATION}%{CASSANDRA_HEAP_AFTER_GC}
+CASSANDRA_G1_GC_STATS           %{CASSANDRA_G1_GC_REASON}%{CASSANDRA_G1_SURVIVOR_STATS}%{CASSANDRA_G1_ERGONOMICS_STATS}?%{CASSANDRA_G1_MINOR_GC_DURATION}%{CASSANDRA_G1_WORKER_STATS}%{CASSANDRA_G1_WORKER_START_STATS}%{CASSANDRA_G1_EXT_ROOT_SCAN_STATS}%{CASSANDRA_G1_EXT_ROOT_MARK_STATS}?%{CASSANDRA_G1_SATB_FILTER_STATS}?%{CASSANDRA_G1_UPDATE_RS_STATS}%{CASSANDRA_G1_PROCESS_BUFFER_STATS}%{CASSANDRA_G1_SCAN_RS_STATS}%{CASSANDRA_G1_CODE_ROOT_SCAN_STATS}%{CASSANDRA_G1_OBJECT_COPY_STATS}%{CASSANDRA_G1_TERMINATION_STATS}%{CASSANDRA_G1_WORKER_OTHER_STATS}%{CASSANDRA_G1_WORKER_TOTAL_STATS}%{CASSANDRA_G1_WORKER_END_STATS}%{CASSANDRA_G1_CODE_ROOT_STATS}%{CASSANDRA_G1_CLEAR_CT}%{CASSANDRA_G1_OTHER_STATS}%{CASSANDRA_HEAP_POOLS_AFTER_GC}%{CASSANDRA_G1_GC_NUMBER}%{REGION_SIZE_AFTER_GC}%{METASPACE_AFTER_GC_G1}%{CLASS_SPACE_AFTER_GC}%{CASSANDRA_G1_GC_DURATION}
+
+###################
+# all pattern for CASSANDRA CMS and G1 Major GC
+###################
+CMS_STAGE                       (((?<=\[CMS\-)(\w+\-{1}\w+)(\-{1}\w+)*)|((?<=\[GC \(CMS )\w+\s+\w+))
+CMS_DURATION                    (:\s+(?<cms_cpu_duration>(\d+\.\d+))\/(?<cms_total_duration>(\d+\.\d+)))
+CMS_USER_DURATION               (.+user=(?<cms_user_duration>(\d+\.\d+)))
+CMS_SYS_DURATION                (\s+sys=(?<cms_sys_duration>(\d+\.\d+)))
+CMS_REAL_DURATION               (.+real=(?<cms_real_duration>(\d+\.\d+)))
+CMS_OLD_GEN                     (.+CMS\-initial\-mark:\s+(?<old_gen_used_before_gc>(\d+))K\((?<old_gen_total_before_gc>(\d+))K)
+CMS_INI_MARK_DURATION           (.+(?<cms_total_duration>(\d+\.\d+))\ssecs\]\s+\[)
+CMS_NEW_GEN                     (.+YG\s+occupancy:\s+(?<new_gen_used_after_gc>(\d+))\s+K\s+\((?<new_gen_total_after_gc>(\d+))\s+K)
+
+# 659452.214: [GC cleanup
+# 659452.214: [GC concurrent-root-region-scan-start]
+# 816418.197: [GC concurrent-cleanup-end, 0.0005591 secs]
+G1_GC_STAGE                     (\d+\.\d+:\s+\[(?<g1_gc_stage>((\w+\s+\w+))(\-\w+)*))
+G1_GC_STAGE_WITH_DURATION       (\d+\.\d+:\s+\[(?<g1_gc_stage>((\w+\s+\w+))(\-\w+)*),\s+(?<gc_duration>(\d+\.\d+))\s+secs\])
+
+# [Times: user=0.12 sys=0.00, real=0.01 secs]
+G1_GC_USER_DURATION             (\s+\[Times:\s+user=(?<g1_gc_user_duration>(\d+\.\d+)))
+G1_GC_SYS_DURATION              (\s+sys=(?<g1_gc_sys_duration>(\d+\.\d+)),)
+G1_GC_REAL_DURATION             (\s+real=(?<g1_gc_real_duration>(\d+\.\d+))\s+secs\])
+G1_GC_PARTS_DURATION            %{G1_GC_USER_DURATION}%{G1_GC_SYS_DURATION}%{G1_GC_REAL_DURATION}
+
+# G1
+# 659452.214: [GC cleanup 3875M->3679M(8192M), 0.0117895 secs] [Times: user=0.12 sys=0.00, real=0.01 secs]
+G1_GC_CLEANUP_STATS             %{G1_GC_STAGE}(\s+(?<heap_used_before_gc>(\d+))M->(?<heap_used_after_gc>(\d+))M\((?<heap_total_after_gc>(\d+))M\),\s+(?<gc_duration>(\d+\.\d+))\s+secs\]\n)%{G1_GC_PARTS_DURATION}
+G1_GC_REMARK_STATS              %{G1_GC_STAGE}(\s+\d+\.\d+:\s+\[GC\s+ref-proc,\s+(?<gc_ref_proc>(\d+\.\d+))\s+secs\],\s+(?<gc_remark>(\d+\.\d+))\s+secs\]\n)%{G1_GC_PARTS_DURATION}
