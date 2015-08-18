@@ -1,0 +1,76 @@
+CASSANDRA_LOG_LEVEL             (INFO|WARN|ERROR|DEBUG|TRACE|FATAL){1}
+CASSANDRA_STAGE                 \[.+\]
+CASSANDRA_JAVA_CLASS            \w+\.{1}(java){1}
+CASSANDRA_JAVA_CLASS_LINE       \((line){1}\s{1}\d+\)
+
+# at org.apache.cassandra.db.columniterator.SSTableSliceIterator.<init>(SSTableSliceIterator.java:42)
+INITSTACKTRACEPART              at %{JAVACLASS:class}\.(<init>)\(%{JAVAFILE:file}:%{NUMBER:line}\)
+
+# at sun.nio.ch.FileDispatcherImpl.read0(Native Method)
+NATIVEMETHODESTACKTRACEPART     at %{JAVACLASS:class}\.%{WORD:method}\((Native Method)\)
+
+# Caused by: org.apache.cassandra.excep....
+# ... 15 more
+# java.lang.RuntimeException: org.apache.cassandra.ex.....
+# java.lang.RuntimeException
+CASSANDRA_ERROR_STACK           (\t%{JAVASTACKTRACEPART})|(\t%{NATIVEMETHODESTACKTRACEPART})|(\t%{NATIVEMETHODESTACKTRACEPART})|(Caused by:)|(\.\.\. \d+ more)|(^%{JAVACLASS}(:){1})|(java\.lang\.NullPointerException)
+
+#####################
+# all pattern for GCInspector 
+#####################
+GCINSPECTOR_GC_TYPE		       ((?<=GC for )(ParNew)|(ConcurrentMarkSweep)|(PS MarkSweep)|(PS Scavenge))
+GCINSPECTOR_GC_DURATION		   (\d+(?= ms))
+GCINSPECTOR_GC_COLLECTIONS	   (\d+(?= collections))
+GCINSPECTOR_GC_HEAP_USE		   (\d+(?= used))
+
+#####################
+# all pattern for FlushWriter 
+#####################
+CASSANDRA_FLUSHED_BYTES		    (\d+(?= bytes))
+CASSANDRA_FLUSHED_OPS           (?:\d+(?= ops))
+CASSANDRA_FLUSHED_INFOS  	    (?<=Writing Memtable-)(?<flushed_memtable_name>(.+))@\d+\((?<flushed_serial_bytes>(\d+))/(?<flushed_live_bytes>(\d+))[^\d]+%{CASSANDRA_FLUSHED_OPS:flushed_ops}
+
+#####################
+# all pattern for CompactionExecutor
+####################
+COMPACT_SSTABLE_COUNT           ((?<=Compacted )\d+)
+# it's possible that no SSTable specified e.g. /system-compactions_in_progress-....
+# Compacted 3 sstables to [].  250 bytes 
+COMPACT_KEYSPACE                (.+\[\/opt\/data\/(?<compact_keyspace>(.+))\/)
+COMPACT_COLUMN_FAMILY           ((?<compact_column_family>(.+))\/.+\])
+COMPACT_BYTES_BEFORE            (\.\s+(?<bytes_before_compact>((\d+,?)+)))
+COMPACT_BYTES_AFTER             (\s+bytes\s+to\s+(?<bytes_after_compact>((\d+,?)+)))
+COMPACT_DURATION                (.+in\s+(?<compact_duration_ms>((\d+,?)+))ms)
+COMPACT_THROUGHPUT              (\s+=\s+(?<compact_throughput_mb_per_sec>(\d+\.\d+))MB\/s)
+COMPACT_PARTITION_BEFORE        (.+\s+(?<partition_before_compact>((\d+,?)+))\s+total\s+partitions)
+COMPACT_PARTITION_AFTER         (\s+merged\s+to\s+(?<partition_after_compact>((\d+,?)+))\.)
+COMPACT_PARTITION_MERGE         (.+\{(?<compact_partition_merge>(.+))\s+\})
+# Compacted 4 sstables to [/opt/data/system/compactions_in_progress/system-compactions_in_progress-jb-3299,]. 413 bytes to 79 (~19% of original) in 11ms = 0.006849MB/s. 5 total partitions merged to 2. Partition merge counts were {1:1, 2:2, } 
+COMPACTION_STATS		        %{COMPACT_SSTABLE_COUNT:compact_sstable_count}%{COMPACT_KEYSPACE}%{COMPACT_COLUMN_FAMILY}%{COMPACT_BYTES_BEFORE}%{COMPACT_BYTES_AFTER}%{COMPACT_DURATION}%{COMPACT_THROUGHPUT}%{COMPACT_PARTITION_BEFORE}%{COMPACT_PARTITION_AFTER}%{COMPACT_PARTITION_MERGE}
+
+# Compacting [SSTableReader(path=&#39;/opt/data/OpsCenter/pdps/OpsCenter-pdps-jb-570-Data.db'), SSTableReader(path=&#39;/opt/data/OpsCenter/pdps/OpsCenter-pdps-jb-571-Data.db')] 
+COMPACT_USED_SSTABLES           ((?<=(SSTableReader\(path=&#39;)|(SSTableReader\(path=')).+(?='\)]))
+
+# Compacting large row margen/margenparameter:858AF (184864599 bytes) incrementally
+COMPACT_LARGE_ROW               ((?<=Compacting large row )(?<large_row_keyspace>(.+))\/(?<large_row_column_familie>(.+)):(?<large_row_partition_key>(.+))\s+\((?<large_row_compacted_bytes>(.+))\s+bytes)
+
+# Saved KeyCache (38910 items) in 255 ms 
+COMPACT_KEYCACHE_ITEMS          ((?<=Saved KeyCache \()\d+(?= items))
+COMPACT_KEYCACHE_DURATION       (\d+(?= ms))
+COMPACT_SAVED_KEYCACHE	 	    %{COMPACT_KEYCACHE_ITEMS:saved_keycache_items}[^\d]+%{COMPACT_KEYCACHE_DURATION:saved_keycache_duration}
+
+# Enqueuing flush of Memtable-compactions_in_progress@1522671460(180/11520 serialized/live bytes, 9 ops) 
+COMPACT_ENQUEUE_MEMTABLE        ((?<=Enqueuing flush of Memtable\-).+(?=@))
+COMPACT_ENQUEUE_SERIAL_BYTES    (.+\((?<enqueue_serial_bytes>(\d+)))
+COMPACT_ENQUEUE_LIVE_BYTES      (\/(?<enqueue_live_bytes>(\d+))\s+)
+COMPACT_ENQUEUE_OPS             ([^\d]+(?<enqueue_ops>(\d+))\s+ops)
+COMPACT_ENQUEUE_FLUSH		    %{COMPACT_ENQUEUE_MEMTABLE:enqueue_memtable}%{COMPACT_ENQUEUE_SERIAL_BYTES}%{COMPACT_ENQUEUE_LIVE_BYTES}%{COMPACT_ENQUEUE_OPS}
+
+#####################
+# all pattern for Dropped Messages
+####################
+DROPPED_MESSAGE_COUNT		    (\d+)
+DROPPED_MESSAGE_DURATION	    (\d+(?=ms))
+DROPPED_MESSAGE_TYPE		    ([\w_]+(?= messages dropped in last ))
+
+
