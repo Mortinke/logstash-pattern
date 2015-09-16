@@ -1,0 +1,25 @@
+######################################
+# all pattern for sar
+######################################
+
+SAR_VALUE           ((\+|-)?\d+)
+SAR_DEC_VALUE       ((\+|-)?\d+(\.|,)\d+)
+
+#  11:02:20 AM     
+SAR_TIME            %{TIME}(\s+(AM|PM))?
+
+# CPU      %usr     %nice      %sys   %iowait    %steal      %irq     %soft    %guest     %idle
+# all      3.43      0.00      0.42      0.00      0.00      0.00      0.00      0.00     96.15                                         
+SAR_U_ALL           (all\s+%{SAR_DEC_VALUE:cpu_usr:float}\s+%{SAR_DEC_VALUE:cpu_nice:float}\s+%{SAR_DEC_VALUE:cpu_sys:float}\s+%{SAR_DEC_VALUE:cpu_iowait:float}\s+%{SAR_DEC_VALUE:cpu_steal:float}\s+%{SAR_DEC_VALUE:cpu_irq:float}\s+%{SAR_DEC_VALUE:cpu_soft:float}\s+%{SAR_DEC_VALUE:cpu_guest:float}\s+%{SAR_DEC_VALUE:cpu_idle:float})
+
+# runq-sz  plist-sz   ldavg-1   ldavg-5  ldavg-15
+# 3        884        1.54      0.76      0.36
+SAR_Q               (%{SAR_VALUE:queue_length:float}\s+%{SAR_VALUE:task_list_count:float}\s+%{SAR_DEC_VALUE:load_avg_1min:float}\s+%{SAR_DEC_VALUE:load_avg_5min:float}\s+%{SAR_DEC_VALUE:load_avg_15min:float})
+
+#  frmpg/s   bufpg/s   campg/s
+# 21596.04      7.92 -22531.68
+SAR_R               (%{SAR_DEC_VALUE:pages_freed:float}\s+%{SAR_DEC_VALUE:pages_buffers:float}\s+%{SAR_DEC_VALUE:pages_caches:float})
+
+# kbmemfree kbmemused  %memused kbbuffers  kbcached  kbcommit   %commit
+#  32250408  33687572     51.09    402620  22604852  11328744     17.18
+SAR_r               (%{SAR_VALUE:free_memory:float}\s+%{SAR_VALUE:used_memory:float}\s+%{SAR_DEC_VALUE:used_memory_percent:float}\s+%{SAR_VALUE:memory_buffer:float}\s+%{SAR_VALUE:memory_cached:float}\s+%{SAR_VALUE:memory_commited:float}\s+%{SAR_DEC_VALUE:memory_commited_percent:float})

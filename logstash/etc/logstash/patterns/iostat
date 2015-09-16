@@ -1,0 +1,16 @@
+######################################
+# all pattern for iostat
+######################################
+
+IOSTAT_VALUE        (\d+)
+IOSTAT_DEC_VALUE    (\d+(\.|,)\d+)
+# sda
+# cciss/c0d0
+DISK_NAME           (\w+(/\w+)?)
+
+
+# 09/10/2015 04:46:42 PM
+# Device:         rrqm/s   wrqm/s     r/s     w/s    rMB/s    wMB/s avgrq-sz avgqu-sz   await  svctm  %util
+# sda               0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00    0.00   0.00   0.00
+# sdc               0.00     7.00    0.00    3.00     0.00     0.04    24.00     0.00    0.00   0.00   0.00
+IOSTAT_TDMX         (%{DISK_NAME:device}\s+%{IOSTAT_DEC_VALUE:read_req_merged}\s+%{IOSTAT_DEC_VALUE:write_req_merged}\s+%{IOSTAT_DEC_VALUE:read_requests}\s+%{IOSTAT_DEC_VALUE:write_requests}\s+%{IOSTAT_DEC_VALUE:read_mb}\s+%{IOSTAT_DEC_VALUE:write_mb}\s+%{IOSTAT_DEC_VALUE:avg_request_size}\s+%{IOSTAT_DEC_VALUE:avg_request_queue_size}\s+%{IOSTAT_DEC_VALUE:request_wait_time}\s+%{IOSTAT_DEC_VALUE:service_wait_time}\s+%{IOSTAT_DEC_VALUE:device_util}\n)
