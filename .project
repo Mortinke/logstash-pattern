@@ -8,4 +8,21 @@
 	</buildSpec>
 	<natures>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>GCDashboard.png</name>
+			<type>1</type>
+			<location>D:/Workspace/geppetto/mortinke/logstash-pattern/GCDashboard.png</location>
+		</link>
+		<link>
+			<name>GCStats.png</name>
+			<type>1</type>
+			<location>D:/Workspace/geppetto/mortinke/logstash-pattern/GCStats.png</location>
+		</link>
+		<link>
+			<name>SARDashboard.png</name>
+			<type>1</type>
+			<location>D:/Workspace/geppetto/mortinke/logstash-pattern/SARDashboard.png</location>
+		</link>
+	</linkedResources>
 </projectDescription>
