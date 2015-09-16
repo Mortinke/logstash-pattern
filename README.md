@@ -8,13 +8,6 @@ Java(TM) SE Runtime Environment (build 1.8.0_20-b26)
 Java HotSpot(TM) 64-Bit Server VM (build 25.20-b23, mixed mode)
 ```
 
-**logstash**
-
-```
-/opt/logstash/bin/logstash --version
-logstash 1.5.3
-```
-
 **cassandra**
 
 cassandra 2.0.9
@@ -116,4 +109,48 @@ JVM_OPTS="$JVM_OPTS -XX:+PrintGCApplicationStoppedTime"
 JVM_OPTS="$JVM_OPTS -XX:+PrintTenuringDistribution"
 JVM_OPTS="$JVM_OPTS -XX:+PrintHeapAtGC"
 JVM_OPTS="$JVM_OPTS -XX:+PrintSafepointStatistics"
+```
+
+**logstash**
+
+```
+/opt/logstash/bin/logstash --version
+logstash 1.5.3
+```
+
+all input, filter and output plugin configuration files should be stored in:
+```
+/etc/logstash/conf.d/
+```
+
+all logstash pattern files should be stored in:
+```
+/etc/logstash/patterns/
+```
+
+used installed logstash plugins:
+* logstash-filter-alter 0.1.6
+* logstash-filter-elapsed 0.1.5
+
+```
+/opt/logstash/bin/plugin install logstash-filter-elapsed
+/opt/logstash/bin/plugin install logstash-filter-alter
+```
+
+**logstash-forwarder**
+
+install
+
+```
+curl -O http://download.elasticsearch.org/logstash-forwarder/packages/logstash-forwarder-0.3.1-1.x86_64.rpm
+yum install logstash-forwarder-0.3.1-1.x86_64.rpm
+```
+
+Please note the modified logstash init-scrips. Two seperate init and config files is a dirty solution, but required  for a filter-multiline plugin bug, which remove identical lines in one event. 
+
+**kibana**
+
+```
+/opt/kibana/bin/kibana --version
+4.1.1
 ```
