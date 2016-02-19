@@ -11,6 +11,8 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.20-b23, mixed mode)
 **cassandra**
 
 cassandra 2.0.9
+cassandra 2.1.9
+cassandra 2.1.10
 
 **cassandra logging properties**
 
@@ -115,7 +117,7 @@ JVM_OPTS="$JVM_OPTS -XX:+PrintSafepointStatistics"
 
 ```
 /opt/logstash/bin/logstash --version
-logstash 1.5.3
+logstash 1.5.3 & logstash 1.5.5
 ```
 
 all input, filter and output plugin configuration files should be stored in:
