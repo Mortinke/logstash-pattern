@@ -1,7 +1,10 @@
 CASSANDRA_LOG_LEVEL             (INFO|WARN|ERROR|DEBUG|TRACE|FATAL){1}
-CASSANDRA_STAGE                 \[.+\]
-CASSANDRA_JAVA_CLASS            \w+\.{1}(java){1}
-CASSANDRA_JAVA_CLASS_LINE       \((line){1}\s{1}\d+\)
+# [MemtableFlushWriter:888]
+CASSANDRA_STAGE                 (\[.+\])
+# version 2.0.9  Memtable.java (line 481)
+# version 2.1.10  Memtable.java:347
+CASSANDRA_JAVA_CLASS            (\s+(?<java_class>(\w+\.{1}(java){1}))((\s+\(line\s+)|(:))(?<line_number>(\d+))(\))?)
+
 
 # at org.apache.cassandra.db.columniterator.SSTableSliceIterator.<init>(SSTableSliceIterator.java:42)
 INITSTACKTRACEPART              at %{JAVACLASS:class}\.(<init>)\(%{JAVAFILE:file}:%{NUMBER:line}\)
@@ -16,61 +19,126 @@ NATIVEMETHODESTACKTRACEPART     at %{JAVACLASS:class}\.%{WORD:method}\((Native M
 CASSANDRA_ERROR_STACK           (\t%{JAVASTACKTRACEPART})|(\t%{NATIVEMETHODESTACKTRACEPART})|(\t%{NATIVEMETHODESTACKTRACEPART})|(Caused by:)|(\.\.\. \d+ more)|(^%{JAVACLASS}(:){1})|(java\.lang\.NullPointerException)
 
 #####################
-# all pattern for GCInspector 
+# all pattern for GCInspector
 #####################
-GCINSPECTOR_GC_TYPE		       ((?<=GC for )(ParNew)|(ConcurrentMarkSweep)|(PS MarkSweep)|(PS Scavenge))
-GCINSPECTOR_GC_DURATION		   (\d+(?= ms))
-GCINSPECTOR_GC_COLLECTIONS	   (\d+(?= collections))
-GCINSPECTOR_GC_HEAP_USE		   (\d+(?= used))
+GCINSPECTOR_GC_TYPE		        ((?<=GC for )(ParNew)|(ConcurrentMarkSweep)|(PS MarkSweep)|(PS Scavenge))
+GCINSPECTOR_GC_DURATION		    (\d+(?= ms))
+GCINSPECTOR_GC_COLLECTIONS	    (\d+(?= collections))
+GCINSPECTOR_GC_HEAP_USE		    (\d+(?= used))
 
 #####################
-# all pattern for FlushWriter 
+# all pattern for FlushWriter
 #####################
-CASSANDRA_FLUSHED_BYTES		    (\d+(?= bytes))
-CASSANDRA_FLUSHED_OPS           (?:\d+(?= ops))
-CASSANDRA_FLUSHED_INFOS  	    (?<=Writing Memtable-)(?<flushed_memtable_name>(.+))@\d+\((?<flushed_serial_bytes>(\d+))/(?<flushed_live_bytes>(\d+))[^\d]+%{CASSANDRA_FLUSHED_OPS:flushed_ops}
+# version 2.0.9
+# Writing Memtable-batchlog@21352410(3778880/3778880 serialized/live bytes, 1476 ops)
+# Completed flushing /opt/data/system/compactions_in_progress/system-compactions_in_progress-jb-22883-Data.db (163 bytes) for commitlog position ReplayPosition(segmentId=1443518362128, position=18445471)
+# version 2.1.10
+# Writing Memtable-xxxxx@1327861656(5.797KiB serialized bytes, 114 ops, 0%/0% of on/off-heap limit)
+# Completed flushing /opt/data/system/compactions_in_progress/system-compactions_in_progress-tmp-ka-285-Data.db (0.000KiB) for commitlog position ReplayPosition(segmentId=1443532798384, position=12878029)
+# Completed flushing /opt/data/system/batchlog/system-batchlog-tmp-ka-2595-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1448363224983, position=22650538)
+CASSANDRA_FLUSHED_COMPLETE          ((Completed flushing).+(Data.db).{,2})
+CASSANDRA_FLUSHED_BYTES		        (\d+(\.\d+)?(?=( bytes)|(KiB)))
+CASSANDRA_FLUSHED_OPS               (?:\d+(?= ops))
+CASSANDRA_FLUSHED_ONHEAP_PERCENT    (\d+(?=%\/))
+CASSANDRA_FLUSHED_OFFHEAP_PERCENT   (\d+(?=%\s+of\s+on\/off-heap\s+limit))
+CASSANDRA_FLUSHED_HEAP_PERCENT      ([^\d]+%{CASSANDRA_FLUSHED_ONHEAP_PERCENT:flushed_onheap_percent}[^\d]+%{CASSANDRA_FLUSHED_OFFHEAP_PERCENT:flushed_offheap_percent})
+CASSANDRA_FLUSHED_INFOS  	        ((?<=Writing Memtable-)(?<flushed_memtable_name>(.+))@\d+\((?<flushed_serial_bytes>(\d+(\.\d+)?))(/(?<flushed_live_bytes>(\d+)))?[^\d]+)%{CASSANDRA_FLUSHED_OPS:flushed_ops}%{CASSANDRA_FLUSHED_HEAP_PERCENT}?
 
 #####################
 # all pattern for CompactionExecutor
 ####################
 COMPACT_SSTABLE_COUNT           ((?<=Compacted )\d+)
-# it's possible that no SSTable specified e.g. /system-compactions_in_progress-....
-# Compacted 3 sstables to [].  250 bytes 
+
+
 COMPACT_KEYSPACE                (.+\[\/opt\/data\/(?<compact_keyspace>(.+))\/)
 COMPACT_COLUMN_FAMILY           ((?<compact_column_family>(.+))\/.+\])
-COMPACT_BYTES_BEFORE            (\.\s+(?<bytes_before_compact>((\d+,?)+)))
+# it's possible that no SSTable specified e.g. /system-compactions_in_progress-....
+# Compacted 3 sstables to [].  250 bytes 
+COMPACT_BYTES_BEFORE            ((.+\[\])?\.\s+(?<bytes_before_compact>((\d+,?)+)))
 COMPACT_BYTES_AFTER             (\s+bytes\s+to\s+(?<bytes_after_compact>((\d+,?)+)))
 COMPACT_DURATION                (.+in\s+(?<compact_duration_ms>((\d+,?)+))ms)
 COMPACT_THROUGHPUT              (\s+=\s+(?<compact_throughput_mb_per_sec>(\d+\.\d+))MB\/s)
 COMPACT_PARTITION_BEFORE        (.+\s+(?<partition_before_compact>((\d+,?)+))\s+total\s+partitions)
 COMPACT_PARTITION_AFTER         (\s+merged\s+to\s+(?<partition_after_compact>((\d+,?)+))\.)
 COMPACT_PARTITION_MERGE         (.+\{(?<compact_partition_merge>(.+))\s+\})
+
 # Compacted 4 sstables to [/opt/data/system/compactions_in_progress/system-compactions_in_progress-jb-3299,]. 413 bytes to 79 (~19% of original) in 11ms = 0.006849MB/s. 5 total partitions merged to 2. Partition merge counts were {1:1, 2:2, } 
-COMPACTION_STATS		        %{COMPACT_SSTABLE_COUNT:compact_sstable_count}%{COMPACT_KEYSPACE}%{COMPACT_COLUMN_FAMILY}%{COMPACT_BYTES_BEFORE}%{COMPACT_BYTES_AFTER}%{COMPACT_DURATION}%{COMPACT_THROUGHPUT}%{COMPACT_PARTITION_BEFORE}%{COMPACT_PARTITION_AFTER}%{COMPACT_PARTITION_MERGE}
+COMPACTION_STATS		%{COMPACT_SSTABLE_COUNT:compact_sstable_count}%{COMPACT_KEYSPACE}?%{COMPACT_COLUMN_FAMILY}?%{COMPACT_BYTES_BEFORE}%{COMPACT_BYTES_AFTER}%{COMPACT_DURATION}%{COMPACT_THROUGHPUT}%{COMPACT_PARTITION_BEFORE}%{COMPACT_PARTITION_AFTER}%{COMPACT_PARTITION_MERGE}
 
 # Compacting [SSTableReader(path=&#39;/opt/data/OpsCenter/pdps/OpsCenter-pdps-jb-570-Data.db'), SSTableReader(path=&#39;/opt/data/OpsCenter/pdps/OpsCenter-pdps-jb-571-Data.db')] 
 COMPACT_USED_SSTABLES           ((?<=(SSTableReader\(path=&#39;)|(SSTableReader\(path=')).+(?='\)]))
 
-# Compacting large row margen/margenparameter:858AF (184864599 bytes) incrementally
-COMPACT_LARGE_ROW               ((?<=Compacting large row )(?<large_row_keyspace>(.+))\/(?<large_row_column_familie>(.+)):(?<large_row_partition_key>(.+))\s+\((?<large_row_compacted_bytes>(.+))\s+bytes)
+# cassandra version 2.0.9
+# Compacting large row xxxxxx/xxxxxxx:858AF (184864599 bytes) incrementally
+# cassandra version 2.1.10
+# Compacting large partition xxxxxx/xxxxx::8760:3600:adama4.JVMPort-xxxxxx.ThreadCount (109542492 bytes)
+COMPACT_LARGE_ROW               (Compacting large (row|partition)\s+(?<large_row_keyspace>(.+))\/(?<large_row_column_familie>([^:]+)):(?<large_row_partition_key>(.+))\s+\((?<large_row_compacted_bytes>(.+))\s+bytes)
 
 # Saved KeyCache (38910 items) in 255 ms 
 COMPACT_KEYCACHE_ITEMS          ((?<=Saved KeyCache \()\d+(?= items))
 COMPACT_KEYCACHE_DURATION       (\d+(?= ms))
-COMPACT_SAVED_KEYCACHE	 	    %{COMPACT_KEYCACHE_ITEMS:saved_keycache_items}[^\d]+%{COMPACT_KEYCACHE_DURATION:saved_keycache_duration}
+COMPACT_SAVED_KEYCACHE	 	%{COMPACT_KEYCACHE_ITEMS:saved_keycache_items}[^\d]+%{COMPACT_KEYCACHE_DURATION:saved_keycache_duration}
 
+# Will not compact /opt/data/system/batchlog/system-batchlog-ka-308: it is not an active sstable
+COMPACT_INACTIVE_SSTABLE        (Will\s+not\s+compact\s+\/opt\/data\/.+\/(?<inactive_sstable>(.+)):)
+
+# version 2.0.9
 # Enqueuing flush of Memtable-compactions_in_progress@1522671460(180/11520 serialized/live bytes, 9 ops) 
-COMPACT_ENQUEUE_MEMTABLE        ((?<=Enqueuing flush of Memtable\-).+(?=@))
-COMPACT_ENQUEUE_SERIAL_BYTES    (.+\((?<enqueue_serial_bytes>(\d+)))
-COMPACT_ENQUEUE_LIVE_BYTES      (\/(?<enqueue_live_bytes>(\d+))\s+)
-COMPACT_ENQUEUE_OPS             ([^\d]+(?<enqueue_ops>(\d+))\s+ops)
-COMPACT_ENQUEUE_FLUSH		    %{COMPACT_ENQUEUE_MEMTABLE:enqueue_memtable}%{COMPACT_ENQUEUE_SERIAL_BYTES}%{COMPACT_ENQUEUE_LIVE_BYTES}%{COMPACT_ENQUEUE_OPS}
+# version 2.1.10
+# Enqueuing flush of compactions_in_progress: 955 (0%) on-heap, 0 (0%) off-heap
+COMPACT_ENQUEUE_MEMTABLE               (Enqueuing\s+flush\s+of\s+(Memtable-)?(?<enqueue_memtable>(\w+))((@\d+)|(:)))
+COMPACT_ENQUEUE_SERIAL_BYTES           (\((?<enqueue_serial_bytes>(\d+)))
+COMPACT_ENQUEUE_LIVE_BYTES             (\/(?<enqueue_live_bytes>(\d+))\s+serialized/live\s+bytes,)
+
+COMPACT_ENQUEUE_ONHEAP_BYTES           (\s+(?<enqueue_onheap_bytes>(\d+)))
+COMPACT_ENQUEUE_ONHEAP_BYTES_PERCENT   (\s+\((?<enqueue_onheap_bytes_percent>(\d+))%\)\s+on-heap,)
+COMPACT_ENQUEUE_OFFHEAP_BYTES          (\s+(?<enqueue_offheap_bytes>(\d+)))
+COMPACT_ENQUEUE_OFFHEAP_BYTES_PERCENT  (\s+\((?<enqueue_offheap_bytes_percent>(\d+))%\)\s+off-heap)
+COMPACT_ENQUEUE_BYTES                  ((%{COMPACT_ENQUEUE_SERIAL_BYTES}%{COMPACT_ENQUEUE_LIVE_BYTES})|(%{COMPACT_ENQUEUE_ONHEAP_BYTES}%{COMPACT_ENQUEUE_ONHEAP_BYTES_PERCENT}%{COMPACT_ENQUEUE_OFFHEAP_BYTES}%{COMPACT_ENQUEUE_OFFHEAP_BYTES_PERCENT}))
+COMPACT_ENQUEUE_OPS                    (\s+(?<enqueue_ops>(\d+))\s+ops\))
+COMPACT_ENQUEUE_FLUSH		           %{COMPACT_ENQUEUE_MEMTABLE}%{COMPACT_ENQUEUE_BYTES}%{COMPACT_ENQUEUE_OPS}?
 
 #####################
 # all pattern for Dropped Messages
 ####################
-DROPPED_MESSAGE_COUNT		    (\d+)
-DROPPED_MESSAGE_DURATION	    (\d+(?=ms))
-DROPPED_MESSAGE_TYPE		    ([\w_]+(?= messages dropped in last ))
+DROPPED_MESSAGE_COUNT		(\d+)
+DROPPED_MESSAGE_DURATION	(\d+(?=ms))
+DROPPED_MESSAGE_TYPE		([\w_]+(?= messages dropped in last ))
 
+#####################
+# all pattern for HintedHandOffManager
+####################
+# version 2.1.10
+# Started hinted handoff for host: 215a0084-158e-4bc8-83c0-727c1f9979a3 with IP: /xxx.xxx.xxx.xxx
+HINTED_HANDOFF_START        ((?<=(host: ))%{UUID:host_uuid}.+(?<=(IP: \/))%{IP})
+HINTED_HANDOFF_END          ([^\d](?<hinted_handoff_rows>(\d+)).+(?<=(endpoint \/))%{IP})
+
+#####################
+# all pattern for NativePoolCleaner
+####################
+# version 2.1.10
+# Flushing largest CFS(Keyspace='xxxxx', ColumnFamily='xxxxx') to free up room. Used total: 0.09/0.20, live: 0.09/0.20, flushing: 0.00/0.00, this: 0.03/0.03
+CASSANDRA_LARGEST_KEYSPACE  ((?<=(Keyspace='))[^']+)
+CASSANDRA_LARGEST_CF        ((?<=(ColumnFamily='))[^']+)
+CASSANDRA_HEAP_TOTAL        ((?<=(Used total: ))(?<on_heap_total>(\d+\.\d+))\/(?<off_heap_total>(\d+\.\d+)))
+CASSANDRA_LIVE_TOTAL        ((?<=(live: ))(?<on_heap_live>(\d+\.\d+))\/(?<off_heap_live>(\d+\.\d+)))
+CASSANDRA_FLUSH_TOTAL       ((?<=(flushing: ))(?<on_heap_flush>(\d+\.\d+))\/(?<off_heap_flush>(\d+\.\d+)))
+CASSANDRA_THIS_TOTAL        ((?<=(this: ))(?<on_heap_column_family>(\d+\.\d+))\/(?<off_heap_column_family>(\d+\.\d+)))
+CASSANDRA_HEAP_USED         %{CASSANDRA_HEAP_TOTAL}.+%{CASSANDRA_LIVE_TOTAL}.+%{CASSANDRA_FLUSH_TOTAL}.+%{CASSANDRA_THIS_TOTAL}
+CASSANDRA_FLUSH_LARGEST_CF  %{CASSANDRA_LARGEST_KEYSPACE:keyspace}.+%{CASSANDRA_LARGEST_CF:column_family}.+%{CASSANDRA_HEAP_USED}
+
+#####################
+# all pattern for SharedPool-Worker
+####################
+# version 2.1.10
+# Unlogged batch covering 4 partitions detected against tables [margins.margin_explanation, margins.margin_data]. You should use a logged batch for atomicity, or asynchronous writes for performance.
+UNLOGGED_BATCH_PARTITION    ((?<=(covering ))\d+(?=( partitions)))
+UNLOGGED_BATCH_CF           ((?<=(\[)).+(?=(])))
+
+# version 2.1.10
+# Batch of prepared statements for [xxxxx.xxxxx, xxxxx.xxxxx] is of size 61643, exceeding specified threshold of 5120 by 56523.
+BATCH_SIZE_CF               ((?<=(\[)).+(?=(])))
+BATCH_SIZE                  ((?<=(size ))\d+(?=(, exceeding)))
+BATCH_SIZE_EXCEED           ((?<=( by ))\d+)
+BATCH_SIZE_WARNING          %{BATCH_SIZE_CF:batch_column_family}.+%{BATCH_SIZE:batch_size}.+%{BATCH_SIZE_EXCEED:batch_size_exceed}
 
