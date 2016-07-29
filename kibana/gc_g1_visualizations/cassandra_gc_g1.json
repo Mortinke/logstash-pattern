@@ -1,0 +1,1369 @@
+[
+  {
+    "_id": "Cassandra-GC-G1:-MaxPendingCards",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxPendingCards",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_choos_cset.pending_cards\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgPendingCards",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgPendingCards",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_choos_cset.pending_cards\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxAddedEdenRegionsToCSet",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxAddedEdenRegionsToCSet",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_choos_cset.add_eden_regions\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxChoosCSetFinishedDuration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxChoosCSetFinishedDuration",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_choos_cset.predict_pause_time\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgChoosCSetFinishedDuration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgChoosCSetFinishedDuration",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_choos_cset.predict_pause_time\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxChoosCSetStartDuration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxChoosCSetStartDuration",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_choos_cset.predict_base_time\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-OldRegionNumReachMax",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: OldRegionNumReachMax",
+      "visState": "{\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"host.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":true}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"m\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\") AND _exists_:\\\"gc_pool\\\" AND g1_choos_cset.finish_add_old_regions_reason:(\\\"old CSet region num reached max\\\")\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgObjectCopyMax",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgObjectCopyMax",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_object_copy.max\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgUpdateRSMax",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgUpdateRSMax",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_update_rs.max\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgScanRsMax",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgScanRsMax",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_scan_rs.max\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxCodeRootMigration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxCodeRootMigration",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_code_root_migration\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgCodeRootMigration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgCodeRootMigration",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_code_root_migration\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgWorkerOtherMax",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgWorkerOtherMax",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_worker_other.max\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgWorkerTotalMax",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgWorkerTotalMax",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_worker_total.max\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxCodeRootFixup",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxCodeRootFixup",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_code_root_fixup\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgCodeRootFixup",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgCodeRootFixup",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_code_root_fixup\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgTerminationMax",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgTerminationMax",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_termination.max\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxSequentiellOtherDuration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxSequentiellOtherDuration",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_other_duration\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgSequentiellOtherDuration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgSequentiellOtherDuration",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_other_duration\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxCodeRootPurge",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxCodeRootPurge",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_code_root_purge\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgCodeRootPurge",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgCodeRootPurge",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_code_root_purge\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxRefProcDuration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxRefProcDuration",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_ref_proc\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgReclaimBytesContinueMixedGC",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgReclaimBytesContinueMixedGC",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_reclaimable_bytes\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgCalculatedExpansionAmount",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgCalculatedExpansionAmount",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_calcu_expansion_amount\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxRecentOverhead",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxRecentOverhead",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_recent_overhead\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgRecentOverhead",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgRecentOverhead",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_recent_overhead\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-JVMUptime",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: JVMUptime",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_jvm_uptime\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-HeapExpansionReason",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: HeapExpansionReason",
+      "visState": "{\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":true}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"g1_heap_expansion_reason.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgAddedEdenRegionsToCSetPerReason",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgAddedEdenRegionsToCSetPerReason",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_choos_cset.add_eden_regions\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"g1_mixed_gc_reason.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":true}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxReclaimPercentThresholdPerReason",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxReclaimPercentThresholdPerReason",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_reclaimable_percent\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"g1_mixed_gc_reason.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":true}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgReclaimPercentThresholdPerReason",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgReclaimPercentThresholdPerReason",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_reclaimable_percent\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"g1_mixed_gc_reason.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":true}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgAddedOldRegionsToCSetPerReason",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgAddedOldRegionsToCSetPerReason",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_choos_cset.added_old_regions\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"g1_mixed_gc_reason.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":true}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\") AND _exists_:\\\"gc_pool\\\" AND gc_pool:\\\"mixed\\\"\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxEdenUsedBeforeMixedGC",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxEdenUsedBeforeMixedGC",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"eden_used_before_gc\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\") AND _exists_:\\\"gc_pool\\\" AND gc_pool:\\\"mixed\\\"\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxEdenUsedAfterMixedGC",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxEdenUsedAfterMixedGC",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"eden_used_after_gc\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\") AND _exists_:\\\"gc_pool\\\" AND gc_pool:\\\"mixed\\\"\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgEdenUsedAfterMixedGC",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgEdenUsedAfterMixedGC",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"eden_used_after_gc\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\") AND _exists_:\\\"gc_pool\\\" AND gc_pool:\\\"mixed\\\"\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MixedGCHeapStatsText",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MixedGCHeapStatsText",
+      "visState": "{\"type\":\"markdown\",\"params\":{\"markdown\":\"# **Alle Statistiken zum Heap vor und nach der Mixed GC**\"},\"aggs\":[],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxEdenRegionCountAfterMixedGC",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxEdenRegionCountAfterMixedGC",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"new_gen_region_count_after_gc\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\") AND _exists_:\\\"gc_pool\\\" AND gc_pool:\\\"mixed\\\"\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgRefProcDuration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgRefProcDuration",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_ref_proc\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxFullyYoungModeDuration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxFullyYoungModeDuration",
+      "visState": "{\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"elapsed.time\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\") AND _exists_:\\\"gc_pool\\\" AND tags:\\\"FullyYoungModeEnd\\\"\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-InitiatConcurrCycleGCCause",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: InitiatConcurrCycleGCCause",
+      "visState": "{\"type\":\"pie\",\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":false,\"shareYAxis\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":true}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"g1_gc_cause.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "GC-Informationen",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgFreeCSetDuration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgFreeCSetDuration",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_free_cset\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxClearCTDuration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxClearCTDuration",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_clear_ct\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgClearCTDuration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgClearCTDuration",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_clear_ct\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxRefEnqDuration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxRefEnqDuration",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_ref_enq\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxSequentiellThreadperStage",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxSequentiellThreadperStage",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_code_root_fixup\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":true}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"4\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_code_root_migration\"}},{\"id\":\"5\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_code_root_purge\"}},{\"id\":\"6\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_clear_ct\"}},{\"id\":\"7\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_other_duration\"}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgSequentiellThreadDuration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgSequentiellThreadDuration",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_sequentiell_duration\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgParallelThreadDuration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgParallelThreadDuration",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"gc_parallel_time\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MixedGCCount",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MixedGCCount",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"m\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\") AND _exists_:\\\"gc_pool\\\" AND gc_pool:\\\"mixed\\\"\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxScanRsSum",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxScanRsSum",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"gc_scan_rs_sum\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-SequentiellThreadsText",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: SequentiellThreadsText",
+      "visState": "{\"type\":\"markdown\",\"params\":{\"markdown\":\"# **Alle Statistiken zu den sequentiellen Threads**\"},\"aggs\":[],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxCodeRootScanMax",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxCodeRootScanMax",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_code_root_scan.max\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgConcurrentCleanup",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgConcurrentCleanup",
+      "visState": "{\"type\":\"line\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"interpolate\":\"linear\",\"radiusRatio\":9,\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"showCircles\":true,\"smoothLines\":false,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"gc_duration\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\")  AND _exists_:\\\"g1_gc_stage\\\" AND g1_gc_stage:\\\"GC concurrent-cleanup-end\\\"\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgConcurrentMark",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgConcurrentMark",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"gc_duration\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\")  AND _exists_:\\\"g1_gc_stage\\\" AND g1_gc_stage:\\\"GC concurrent-mark-end\\\"\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgGCRemarkRefProc",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgGCRemarkRefProc",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_ref_proc\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\")  AND _exists_:\\\"g1_gc_stage\\\" AND g1_gc_stage:\\\"GC remark\\\"\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgGCCleanup",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgGCCleanup",
+      "visState": "{\"type\":\"line\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"interpolate\":\"linear\",\"radiusRatio\":9,\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"showCircles\":true,\"smoothLines\":false,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"gc_duration\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"type:(\\\"cassandra_gc\\\")  AND _exists_:\\\"g1_gc_stage\\\" AND g1_gc_stage:\\\"GC cleanup\\\"\"}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxGCRemark",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxGCRemark",
+      "visState": "{\"type\":\"line\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"interpolate\":\"linear\",\"radiusRatio\":9,\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"showCircles\":true,\"smoothLines\":false,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_ref_proc\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\")  AND _exists_:\\\"g1_gc_stage\\\" AND g1_gc_stage:\\\"GC remark\\\"\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgGCRemark",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgGCRemark",
+      "visState": "{\"type\":\"line\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"interpolate\":\"linear\",\"radiusRatio\":9,\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"showCircles\":true,\"smoothLines\":false,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_ref_proc\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\")  AND _exists_:\\\"g1_gc_stage\\\" AND g1_gc_stage:\\\"GC remark\\\"\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-ConcurrentMarkDurationPerStage",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: ConcurrentMarkDurationPerStage",
+      "visState": "{\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"gc_duration\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":true}},{\"id\":\"3\",\"type\":\"filters\",\"schema\":\"segment\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"g1_gc_stage:\\\"GC remark\\\"\",\"analyze_wildcard\":true}}}},{\"input\":{\"query\":{\"query_string\":{\"query\":\"g1_gc_stage:\\\"GC cleanup\\\"\",\"analyze_wildcard\":true}}}},{\"input\":{\"query\":{\"query_string\":{\"query\":\"g1_gc_stage:\\\"GC concurrent-mark-end\\\"\",\"analyze_wildcard\":true}}}},{\"input\":{\"query\":{\"query_string\":{\"query\":\"g1_gc_stage:\\\"GC concurrent-root-region-scan-end\\\"\",\"analyze_wildcard\":true}}}},{\"input\":{\"query\":{\"query_string\":{\"query\":\"g1_gc_stage:\\\"GC concurrent-cleanup-end\\\"\",\"analyze_wildcard\":true}}}}]}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Concurrent-Mark",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-InitiatConcurrCycleReason",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: InitiatConcurrCycleReason",
+      "visState": "{\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":false}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"g1_concurrent_cycle_reason.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\")\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxAddedSurvivorRegionsToCSetPerReason",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxAddedSurvivorRegionsToCSetPerReason",
+      "visState": "{\n \"type\": \"line\",\n \"params\": {\n \"shareYAxis\": true,\n \"addTooltip\": true,\n \"addLegend\": true,\n \"showCircles\": true,\n \"smoothLines\": false,\n \"interpolate\": \"linear\",\n \"scale\": \"linear\",\n \"drawLinesBetweenPoints\": true,\n \"radiusRatio\": 9,\n \"times\": [],\n \"addTimeMarker\": false,\n \"defaultYExtents\": true,\n \"setYExtents\": false,\n \"yAxis\": {}\n },\n \"aggs\": [\n {\n \"id\": \"1\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"g1_choos_cset.added_survivor_regions\"\n }\n },\n {\n \"id\": \"2\",\n \"type\": \"terms\",\n \"schema\": \"group\",\n \"params\": {\n \"field\": \"host.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\"\n }\n },\n {\n \"id\": \"3\",\n \"type\": \"date_histogram\",\n \"schema\": \"segment\",\n \"params\": {\n \"field\": \"@timestamp\",\n \"interval\": \"s\",\n \"customInterval\": \"2h\",\n \"min_doc_count\": 1,\n \"extended_bounds\": {}\n }\n },\n {\n \"id\": \"4\",\n \"type\": \"terms\",\n \"schema\": \"split\",\n \"params\": {\n \"field\": \"g1_mixed_gc_reason.raw\",\n \"size\": 5,\n \"order\": \"desc\",\n \"orderBy\": \"1\",\n \"row\": true\n }\n }\n ],\n \"listeners\": {}\n}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxAddedSurvivorRegionsToCSet",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxAddedSurvivorRegionsToCSet",
+      "visState": "{\n \"type\": \"line\",\n \"params\": {\n \"shareYAxis\": true,\n \"addTooltip\": true,\n \"addLegend\": true,\n \"showCircles\": true,\n \"smoothLines\": false,\n \"interpolate\": \"linear\",\n \"scale\": \"linear\",\n \"drawLinesBetweenPoints\": true,\n \"radiusRatio\": 9,\n \"times\": [],\n \"addTimeMarker\": false,\n \"defaultYExtents\": true,\n \"setYExtents\": false,\n \"yAxis\": {}\n },\n \"aggs\": [\n {\n \"id\": \"1\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"g1_choos_cset.added_survivor_regions\"\n }\n },\n {\n \"id\": \"2\",\n \"type\": \"terms\",\n \"schema\": \"group\",\n \"params\": {\n \"field\": \"host.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\"\n }\n },\n {\n \"id\": \"3\",\n \"type\": \"date_histogram\",\n \"schema\": \"segment\",\n \"params\": {\n \"field\": \"@timestamp\",\n \"interval\": \"s\",\n \"customInterval\": \"2h\",\n \"min_doc_count\": 1,\n \"extended_bounds\": {}\n }\n }\n ],\n \"listeners\": {}\n}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgAddedSurvivorRegionsToCSet",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgAddedSurvivorRegionsToCSet",
+      "visState": "{\n \"type\": \"line\",\n \"params\": {\n \"shareYAxis\": true,\n \"addTooltip\": true,\n \"addLegend\": true,\n \"showCircles\": true,\n \"smoothLines\": false,\n \"interpolate\": \"linear\",\n \"scale\": \"linear\",\n \"drawLinesBetweenPoints\": true,\n \"radiusRatio\": 9,\n \"times\": [],\n \"addTimeMarker\": false,\n \"defaultYExtents\": true,\n \"setYExtents\": false,\n \"yAxis\": {}\n },\n \"aggs\": [\n {\n \"id\": \"1\",\n \"type\": \"avg\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"g1_choos_cset.added_survivor_regions\"\n }\n },\n {\n \"id\": \"2\",\n \"type\": \"terms\",\n \"schema\": \"group\",\n \"params\": {\n \"field\": \"host.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\"\n }\n },\n {\n \"id\": \"3\",\n \"type\": \"date_histogram\",\n \"schema\": \"segment\",\n \"params\": {\n \"field\": \"@timestamp\",\n \"interval\": \"s\",\n \"customInterval\": \"2h\",\n \"min_doc_count\": 1,\n \"extended_bounds\": {}\n }\n }\n ],\n \"listeners\": {}\n}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgAddedEdenRegionsToCSet",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgAddedEdenRegionsToCSet",
+      "visState": "{\n \"type\": \"line\",\n \"params\": {\n \"shareYAxis\": true,\n \"addTooltip\": true,\n \"addLegend\": true,\n \"showCircles\": true,\n \"smoothLines\": false,\n \"interpolate\": \"linear\",\n \"scale\": \"linear\",\n \"drawLinesBetweenPoints\": true,\n \"radiusRatio\": 9,\n \"times\": [],\n \"addTimeMarker\": false,\n \"defaultYExtents\": true,\n \"setYExtents\": false,\n \"yAxis\": {}\n },\n \"aggs\": [\n {\n \"id\": \"1\",\n \"type\": \"avg\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"g1_choos_cset.add_eden_regions\"\n }\n },\n {\n \"id\": \"2\",\n \"type\": \"terms\",\n \"schema\": \"group\",\n \"params\": {\n \"field\": \"host.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\"\n }\n },\n {\n \"id\": \"3\",\n \"type\": \"date_histogram\",\n \"schema\": \"segment\",\n \"params\": {\n \"field\": \"@timestamp\",\n \"interval\": \"s\",\n \"customInterval\": \"2h\",\n \"min_doc_count\": 1,\n \"extended_bounds\": {}\n }\n }\n ],\n \"listeners\": {}\n}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgAddedSurvivorRegionsToCSetPerReason",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgAddedSurvivorRegionsToCSetPerReason",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_choos_cset.added_survivor_regions\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"g1_mixed_gc_reason.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":true}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      },
+      "_source.visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_choos_cset.added_survivor_regions\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"g1_mixed_gc_reason.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":true}}],\"listeners\":{}}"
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-OccupancyThreshold",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: OccupancyThreshold",
+      "visState": "{\"type\":\"metric\",\"params\":{\"fontSize\":60},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_occupancy_threshold\"}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-ConcurrentMarkingDurcationStatsText",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: ConcurrentMarkingDurcationStatsText",
+      "visState": "{\"type\":\"markdown\",\"params\":{\"markdown\":\"# **Alle Statistiken zu der Dauer des Concurrent Marking**\"},\"aggs\":[],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-InitiatConcurrentCycleFollowingThreshold",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: InitiatConcurrentCycleFollowingThreshold",
+      "visState": "{\"type\":\"histogram\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"mode\":\"stacked\",\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"host.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":true}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"m\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"4\",\"type\":\"filters\",\"schema\":\"group\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"g1_choos_cset.finish_add_old_regions_reason:(\\\"old CSet region num reached max\\\")\"}}}},{\"input\":{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"g1_choos_cset.finish_add_old_regions_reason:(\\\"reclaimable percentage not over threshold\\\")\"}}}},{\"input\":{\"query\":{\"query_string\":{\"query\":\"_exists_:\\\"g1_concurrent_cycle_reason\\\"\",\"analyze_wildcard\":true}}}}]}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\")\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxSurvivorUsedAfterMixedGC",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxSurvivorUsedAfterMixedGC",
+      "visState": "{\n \"type\": \"line\",\n \"params\": {\n \"shareYAxis\": true,\n \"addTooltip\": true,\n \"addLegend\": true,\n \"showCircles\": true,\n \"smoothLines\": false,\n \"interpolate\": \"linear\",\n \"scale\": \"linear\",\n \"drawLinesBetweenPoints\": true,\n \"radiusRatio\": 9,\n \"times\": [],\n \"addTimeMarker\": false,\n \"defaultYExtents\": true,\n \"setYExtents\": false,\n \"yAxis\": {}\n },\n \"aggs\": [\n {\n \"id\": \"1\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"survivor_used_after_gc\"\n }\n },\n {\n \"id\": \"2\",\n \"type\": \"terms\",\n \"schema\": \"group\",\n \"params\": {\n \"field\": \"host.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\"\n }\n },\n {\n \"id\": \"3\",\n \"type\": \"date_histogram\",\n \"schema\": \"segment\",\n \"params\": {\n \"field\": \"@timestamp\",\n \"interval\": \"s\",\n \"customInterval\": \"2h\",\n \"min_doc_count\": 1,\n \"extended_bounds\": {}\n }\n }\n ],\n \"listeners\": {}\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": [],\n  \"index\": \"logstash_cassandra_gc*\",\n  \"query\": {\n    \"query_string\": {\n      \"query\": \"type:(\\\"cassandra_gc\\\") AND _exists_:\\\"gc_pool\\\" AND gc_pool:\\\"mixed\\\"\",\n      \"analyze_wildcard\": true\n    }\n  },\n  \"highlight\": {\n    \"pre_tags\": [\n      \"@kibana-highlighted-field@\"\n    ],\n    \"post_tags\": [\n      \"@/kibana-highlighted-field@\"\n    ],\n    \"fields\": {\n      \"*\": {}\n    },\n    \"fragment_size\": 2147483647\n  }\n}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-ReclaimPercentNotOverThreshold",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: ReclaimPercentNotOverThreshold",
+      "visState": "{\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"host.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":true}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"m\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\") AND _exists_:\\\"gc_pool\\\" AND g1_choos_cset.finish_add_old_regions_reason:(\\\"reclaimable percentage not over threshold\\\")\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgMixedGCDuration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgMixedGCDuration",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"gc_duration\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\") AND _exists_:\\\"gc_pool\\\" AND gc_pool:\\\"mixed\\\"\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-StopAddOldRegionsReason",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: StopAddOldRegionsReason",
+      "visState": "{\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":false}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"g1_choos_cset.finish_add_old_regions_reason.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MixedGCDurcationStatsText",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MixedGCDurcationStatsText",
+      "visState": "{\"type\":\"markdown\",\"params\":{\"markdown\":\"# **Alle Statistiken zu der Dauer der Mixed GC**\\n* Statistiken über die Dauer der einzelnen parallelen und sequentiellen Threads findet man in den Dashboards \\\"Cassandra GC G1: Young and Mixed GC ParallelThread\\\" und \\\"Cassandra GC G1: Young and Mixed GC SequentiellThread\\\"\"},\"aggs\":[],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MixedGCReasonText",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MixedGCReasonText",
+      "visState": "{\"type\":\"markdown\",\"params\":{\"markdown\":\"# **Alle Statistiken zu den Gründen des Startens und Fortführen einer Mixed GC**\"},\"aggs\":[],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxReclaimBytesContinueMixedGCPerReason",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxReclaimBytesContinueMixedGCPerReason",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_reclaimable_bytes\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"4\",\"type\":\"filters\",\"schema\":\"split\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"g1_mixed_gc_reason:\\\"candidate old regions available\\\"\",\"analyze_wildcard\":true}}}},{\"input\":{\"query\":{\"query_string\":{\"query\":\"g1_mixed_gc_reason:\\\"reclaimable percentage not over threshold\\\"\",\"analyze_wildcard\":true}}}}],\"row\":true}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgReclaimBytesContinueMixedGCPerReason",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgReclaimBytesContinueMixedGCPerReason",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_reclaimable_bytes\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"4\",\"type\":\"filters\",\"schema\":\"split\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"g1_mixed_gc_reason:\\\"candidate old regions available\\\"\",\"analyze_wildcard\":true}}}},{\"input\":{\"query\":{\"query_string\":{\"query\":\"g1_mixed_gc_reason:\\\"reclaimable percentage not over threshold\\\"\",\"analyze_wildcard\":true}}}}],\"row\":true}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxAddedOldRegionsToCSetPerReason",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxAddedOldRegionsToCSetPerReason",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_choos_cset.added_old_regions\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"g1_mixed_gc_reason.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":true}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\") AND _exists_:\\\"gc_pool\\\" AND gc_pool:\\\"mixed\\\"\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxAddedEdenRegionsToCSetPerReason",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxAddedEdenRegionsToCSetPerReason",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_choos_cset.add_eden_regions\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"g1_mixed_gc_reason.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":true}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxMixedGCDuration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxMixedGCDuration",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"gc_duration\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\") AND _exists_:\\\"gc_pool\\\" AND gc_pool:\\\"mixed\\\"\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxPartiallyYoungModeDuration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxPartiallyYoungModeDuration",
+      "visState": "{\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"elapsed.time\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\") AND _exists_:\\\"gc_pool\\\" AND tags:\\\"PartiallyYoungModeEnd\\\"\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgRefEnqDuration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgRefEnqDuration",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_ref_enq\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxParallelThreadperStage",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxParallelThreadperStage",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_ext_root_mark.max\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":true}},{\"id\":\"3\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_update_rs.max\"}},{\"id\":\"4\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_scan_rs.max\"}},{\"id\":\"5\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_code_root_scan.max\"}},{\"id\":\"6\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_object_copy.max\"}},{\"id\":\"7\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_termination.max\"}},{\"id\":\"8\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_worker_other.max\"}},{\"id\":\"9\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_worker_total.max\"}},{\"id\":\"10\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxRedirtyCardsDuration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxRedirtyCardsDuration",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_redirty_cards\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-GCThroughputText",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: GCThroughputText",
+      "visState": "{\"type\":\"markdown\",\"params\":{\"markdown\":\"# **Alle Statistiken zu Young & Mixed GC Throughput**\\n* Alle Angaben in MB/Sekunde\"},\"aggs\":[],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-YoungGCCount",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: YoungGCCount",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"m\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\") AND _exists_:\\\"gc_pool\\\" AND gc_pool:\\\"young\\\"\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgEdenRegionCountAfterMixedGC",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgEdenRegionCountAfterMixedGC",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"new_gen_region_count_after_gc\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\") AND _exists_:\\\"gc_pool\\\" AND gc_pool:\\\"mixed\\\"\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgSurvivorUsedBeforeMixedGC",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgSurvivorUsedBeforeMixedGC",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"survivor_total_before_gc\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\") AND _exists_:\\\"gc_pool\\\" AND gc_pool:\\\"mixed\\\"\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxHeapUsedBeforeMixedGC",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxHeapUsedBeforeMixedGC",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"heap_used_before_gc\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\") AND _exists_:\\\"gc_pool\\\" AND gc_pool:\\\"mixed\\\"\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgEdenUsedBeforeMixedGC",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgEdenUsedBeforeMixedGC",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"eden_used_before_gc\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\") AND _exists_:\\\"gc_pool\\\" AND gc_pool:\\\"mixed\\\"\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxHeapUsedAfterMixedGC",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxHeapUsedAfterMixedGC",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"heap_used_after_gc\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"index\":\"logstash_cassandra_gc*\",\"query\":{\"query_string\":{\"query\":\"type:(\\\"cassandra_gc\\\") AND _exists_:\\\"gc_pool\\\" AND gc_pool:\\\"mixed\\\"\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxExtRootScanMax",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxExtRootScanMax",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_ext_root_scan.max\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxWorkerOtherSum",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxWorkerOtherSum",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"gc_worker_other_sum\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxWorkerTotalSum",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxWorkerTotalSum",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"gc_worker_total_sum\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxWorkerEndDiff",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxWorkerEndDiff",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_worker_end.diff\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxTerminationMax",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxTerminationMax",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_termination.max\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxObjectCopyMax",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxObjectCopyMax",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_object_copy.max\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgChooseCsetAddDuration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgChooseCsetAddDuration",
+      "visState": "{\n \"type\": \"line\",\n \"params\": {\n \"shareYAxis\": true,\n \"addTooltip\": true,\n \"addLegend\": true,\n \"showCircles\": true,\n \"smoothLines\": false,\n \"interpolate\": \"linear\",\n \"scale\": \"linear\",\n \"drawLinesBetweenPoints\": true,\n \"radiusRatio\": 9,\n \"times\": [],\n \"addTimeMarker\": false,\n \"defaultYExtents\": false,\n \"setYExtents\": false,\n \"yAxis\": {}\n },\n \"aggs\": [\n {\n \"id\": \"1\",\n \"type\": \"avg\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"g1_choos_cset.predict_young_time\"\n }\n },\n {\n \"id\": \"2\",\n \"type\": \"terms\",\n \"schema\": \"group\",\n \"params\": {\n \"field\": \"host.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\"\n }\n },\n {\n \"id\": \"3\",\n \"type\": \"date_histogram\",\n \"schema\": \"segment\",\n \"params\": {\n \"field\": \"@timestamp\",\n \"interval\": \"s\",\n \"customInterval\": \"2h\",\n \"min_doc_count\": 1,\n \"extended_bounds\": {}\n }\n }\n ],\n \"listeners\": {}\n}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-AvgChoosCSetStartDuration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: AvgChoosCSetStartDuration",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_choos_cset.predict_base_time\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxChooseCsetAddDuration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxChooseCsetAddDuration",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_choos_cset.predict_young_time\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxInitiatConcurCycleAllocatRequest",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxInitiatConcurCycleAllocatRequest",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":true,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_allocation_request\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Cassandra-GC-G1:-MaxUpdateRSMax",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC G1: MaxUpdateRSMax",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"g1_update_rs.max\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "savedSearchId": "Cassandra-GC-G1:-Young-and-Mixed-GC",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  }
+]

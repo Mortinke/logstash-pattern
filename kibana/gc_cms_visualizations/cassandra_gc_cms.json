@@ -1,0 +1,267 @@
+[
+  {
+    "_id": "MaxOldGenChunkSizeBeforeGC",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC CMS: MaxOldGenChunkSizeBeforeGC",
+      "visState": "{\n \"type\": \"line\",\n \"params\": {\n \"shareYAxis\": true,\n \"addTooltip\": true,\n \"addLegend\": true,\n \"defaultYExtents\": true\n },\n \"aggs\": [\n {\n \"id\": \"1\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"old_gen_max_chunk_before_gc\"\n }\n },\n {\n \"id\": \"2\",\n \"type\": \"terms\",\n \"schema\": \"split\",\n \"params\": {\n \"field\": \"host.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\",\n \"row\": true\n }\n },\n {\n \"id\": \"3\",\n \"type\": \"date_histogram\",\n \"schema\": \"segment\",\n \"params\": {\n \"field\": \"@timestamp\",\n \"interval\": \"second\",\n \"min_doc_count\": 1,\n \"extended_bounds\": {}\n }\n }\n ],\n \"listeners\": {}\n}",
+      "description": "",
+      "savedSearchId": "GC-Informationen",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "MaxOldGenChunkSizeAfterGC",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC CMS: MaxOldGenChunkSizeAfterGC",
+      "visState": "{\n \"type\": \"line\",\n \"params\": {\n \"shareYAxis\": true,\n \"addTooltip\": true,\n \"addLegend\": true,\n \"defaultYExtents\": true\n },\n \"aggs\": [\n {\n \"id\": \"1\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"old_gen_max_chunk_after_gc\"\n }\n },\n {\n \"id\": \"2\",\n \"type\": \"terms\",\n \"schema\": \"split\",\n \"params\": {\n \"field\": \"host.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\",\n \"row\": true\n }\n },\n {\n \"id\": \"3\",\n \"type\": \"date_histogram\",\n \"schema\": \"segment\",\n \"params\": {\n \"field\": \"@timestamp\",\n \"interval\": \"second\",\n \"min_doc_count\": 1,\n \"extended_bounds\": {}\n }\n }\n ],\n \"listeners\": {}\n}",
+      "description": "",
+      "savedSearchId": "GC-Informationen",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "MaxGCDurationPerStage",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC CMS: MaxGCDurationPerStage",
+      "visState": "{\n \"type\": \"histogram\",\n \"params\": {\n \"shareYAxis\": true,\n \"addTooltip\": true,\n \"addLegend\": true,\n \"mode\": \"stacked\",\n \"defaultYExtents\": false\n },\n \"aggs\": [\n {\n \"id\": \"1\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"gc_real_duration\"\n }\n },\n {\n \"id\": \"2\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"gc_sys_duration\"\n }\n },\n {\n \"id\": \"3\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"gc_user_duration\"\n }\n },\n {\n \"id\": \"4\",\n \"type\": \"terms\",\n \"schema\": \"split\",\n \"params\": {\n \"field\": \"host.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\",\n \"row\": true\n }\n },\n {\n \"id\": \"5\",\n \"type\": \"date_histogram\",\n \"schema\": \"segment\",\n \"params\": {\n \"field\": \"@timestamp\",\n \"interval\": \"second\",\n \"min_doc_count\": 1,\n \"extended_bounds\": {}\n }\n }\n ],\n \"listeners\": {}\n}",
+      "description": "",
+      "savedSearchId": "GC-Informationen",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "MaxOldGenAvgBlockSizeBeforeGC",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC CMS: MaxOldGenAvgBlockSizeBeforeGC",
+      "visState": "{\n \"type\": \"line\",\n \"params\": {\n \"shareYAxis\": true,\n \"addTooltip\": true,\n \"addLegend\": true,\n \"defaultYExtents\": true\n },\n \"aggs\": [\n {\n \"id\": \"1\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"old_gen_avg_block_size_before_gc\"\n }\n },\n {\n \"id\": \"2\",\n \"type\": \"terms\",\n \"schema\": \"split\",\n \"params\": {\n \"field\": \"host.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\",\n \"row\": true\n }\n },\n {\n \"id\": \"3\",\n \"type\": \"date_histogram\",\n \"schema\": \"segment\",\n \"params\": {\n \"field\": \"@timestamp\",\n \"interval\": \"second\",\n \"min_doc_count\": 1,\n \"extended_bounds\": {}\n }\n }\n ],\n \"listeners\": {}\n}",
+      "description": "",
+      "savedSearchId": "GC-Informationen",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "MaxOldGenFreeFragSpaceAfterGC",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC CMS: MaxOldGenFreeFragSpaceAfterGC",
+      "visState": "{\n \"type\": \"line\",\n \"params\": {\n \"shareYAxis\": true,\n \"addTooltip\": true,\n \"addLegend\": true,\n \"defaultYExtents\": true\n },\n \"aggs\": [\n {\n \"id\": \"1\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"old_gen_free_frag_after_gc\"\n }\n },\n {\n \"id\": \"2\",\n \"type\": \"terms\",\n \"schema\": \"split\",\n \"params\": {\n \"field\": \"host.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\",\n \"row\": true\n }\n },\n {\n \"id\": \"3\",\n \"type\": \"date_histogram\",\n \"schema\": \"segment\",\n \"params\": {\n \"field\": \"@timestamp\",\n \"interval\": \"second\",\n \"min_doc_count\": 1,\n \"extended_bounds\": {}\n }\n }\n ],\n \"listeners\": {}\n}",
+      "description": "",
+      "savedSearchId": "GC-Informationen",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "MaxOldGenFreeFragSpaceBeforeGC",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC CMS: MaxOldGenFreeFragSpaceBeforeGC",
+      "visState": "{\n \"type\": \"line\",\n \"params\": {\n \"shareYAxis\": true,\n \"addTooltip\": true,\n \"addLegend\": true,\n \"defaultYExtents\": true\n },\n \"aggs\": [\n {\n \"id\": \"1\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"old_gen_free_frag_before_gc\"\n }\n },\n {\n \"id\": \"2\",\n \"type\": \"terms\",\n \"schema\": \"split\",\n \"params\": {\n \"field\": \"host.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\",\n \"row\": true\n }\n },\n {\n \"id\": \"3\",\n \"type\": \"date_histogram\",\n \"schema\": \"segment\",\n \"params\": {\n \"field\": \"@timestamp\",\n \"interval\": \"second\",\n \"min_doc_count\": 1,\n \"extended_bounds\": {}\n }\n }\n ],\n \"listeners\": {}\n}",
+      "description": "",
+      "savedSearchId": "GC-Informationen",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "MaxOldGenAvgBlockSizeAfterGC",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC CMS: MaxOldGenAvgBlockSizeAfterGC",
+      "visState": "{\n \"type\": \"line\",\n \"params\": {\n \"shareYAxis\": true,\n \"addTooltip\": true,\n \"addLegend\": true,\n \"defaultYExtents\": true\n },\n \"aggs\": [\n {\n \"id\": \"1\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"old_gen_avg_block_size_after_gc\"\n }\n },\n {\n \"id\": \"2\",\n \"type\": \"terms\",\n \"schema\": \"split\",\n \"params\": {\n \"field\": \"host.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\",\n \"row\": true\n }\n },\n {\n \"id\": \"3\",\n \"type\": \"date_histogram\",\n \"schema\": \"segment\",\n \"params\": {\n \"field\": \"@timestamp\",\n \"interval\": \"second\",\n \"min_doc_count\": 1,\n \"extended_bounds\": {}\n }\n }\n ],\n \"listeners\": {}\n}",
+      "description": "",
+      "savedSearchId": "GC-Informationen",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "MaxOldGenBlockNumbersAfterGC",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC CMS: MaxOldGenBlockNumbersAfterGC",
+      "visState": "{\n \"type\": \"line\",\n \"params\": {\n \"shareYAxis\": true,\n \"addTooltip\": true,\n \"addLegend\": true,\n \"defaultYExtents\": true\n },\n \"aggs\": [\n {\n \"id\": \"1\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"old_gen_block_numbers_after_gc\"\n }\n },\n {\n \"id\": \"2\",\n \"type\": \"terms\",\n \"schema\": \"split\",\n \"params\": {\n \"field\": \"host.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\",\n \"row\": true\n }\n },\n {\n \"id\": \"3\",\n \"type\": \"date_histogram\",\n \"schema\": \"segment\",\n \"params\": {\n \"field\": \"@timestamp\",\n \"interval\": \"second\",\n \"min_doc_count\": 1,\n \"extended_bounds\": {}\n }\n }\n ],\n \"listeners\": {}\n}",
+      "description": "",
+      "savedSearchId": "GC-Informationen",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "MaxOldGenTreeHeightBeforeGC",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC CMS: MaxOldGenTreeHeightBeforeGC",
+      "visState": "{\n \"type\": \"line\",\n \"params\": {\n \"shareYAxis\": true,\n \"addTooltip\": true,\n \"addLegend\": true,\n \"defaultYExtents\": true\n },\n \"aggs\": [\n {\n \"id\": \"1\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"old_gen_tree_height_before_gc\"\n }\n },\n {\n \"id\": \"2\",\n \"type\": \"terms\",\n \"schema\": \"split\",\n \"params\": {\n \"field\": \"host.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\",\n \"row\": true\n }\n },\n {\n \"id\": \"3\",\n \"type\": \"date_histogram\",\n \"schema\": \"segment\",\n \"params\": {\n \"field\": \"@timestamp\",\n \"interval\": \"second\",\n \"min_doc_count\": 1,\n \"extended_bounds\": {}\n }\n }\n ],\n \"listeners\": {}\n}",
+      "description": "",
+      "savedSearchId": "GC-Informationen",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "MaxOldGenTreeHeightAfterGC",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC CMS: MaxOldGenTreeHeightAfterGC",
+      "visState": "{\n \"type\": \"line\",\n \"params\": {\n \"shareYAxis\": true,\n \"addTooltip\": true,\n \"addLegend\": true,\n \"defaultYExtents\": true\n },\n \"aggs\": [\n {\n \"id\": \"1\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"old_gen_tree_height_after_gc\"\n }\n },\n {\n \"id\": \"2\",\n \"type\": \"terms\",\n \"schema\": \"split\",\n \"params\": {\n \"field\": \"host.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\",\n \"row\": true\n }\n },\n {\n \"id\": \"3\",\n \"type\": \"date_histogram\",\n \"schema\": \"segment\",\n \"params\": {\n \"field\": \"@timestamp\",\n \"interval\": \"second\",\n \"min_doc_count\": 1,\n \"extended_bounds\": {}\n }\n }\n ],\n \"listeners\": {}\n}",
+      "description": "",
+      "savedSearchId": "GC-Informationen",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "CMSStopTheWorldDuration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC CMS: StopTheWorldDuration",
+      "visState": "{\n \"type\": \"histogram\",\n \"params\": {\n \"shareYAxis\": true,\n \"addTooltip\": true,\n \"addLegend\": true,\n \"mode\": \"stacked\",\n \"defaultYExtents\": true\n },\n \"aggs\": [\n {\n \"id\": \"1\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"cms_total_duration\"\n }\n },\n {\n \"id\": \"2\",\n \"type\": \"terms\",\n \"schema\": \"split\",\n \"params\": {\n \"field\": \"host.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\",\n \"row\": true\n }\n },\n {\n \"id\": \"3\",\n \"type\": \"date_histogram\",\n \"schema\": \"segment\",\n \"params\": {\n \"field\": \"@timestamp\",\n \"interval\": \"second\",\n \"min_doc_count\": 1,\n \"extended_bounds\": {}\n }\n },\n {\n \"id\": \"4\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"cms_cpu_duration\"\n }\n },\n {\n \"id\": \"5\",\n \"type\": \"filters\",\n \"schema\": \"group\",\n \"params\": {\n \"filters\": [\n {\n \"input\": {\n \"query\": {\n \"query_string\": {\n \"query\": \"cms_stage.raw:\\\"Initial Mark\\\"\",\n \"analyze_wildcard\": true\n }\n }\n }\n },\n {\n \"input\": {\n \"query\": {\n \"query_string\": {\n \"query\": \"cms_stage.raw:\\\"concurrent-abortable-preclean\\\"\",\n \"analyze_wildcard\": true\n }\n }\n }\n }\n ]\n }\n }\n ],\n \"listeners\": {}\n}",
+      "description": "",
+      "savedSearchId": "CMS-Informationen",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "CMSStopTheWorldDurationPerStage",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC CMS: StopTheWorldDurationPerStage",
+      "visState": "{\n \"type\": \"histogram\",\n \"params\": {\n \"shareYAxis\": true,\n \"addTooltip\": true,\n \"addLegend\": true,\n \"mode\": \"stacked\",\n \"defaultYExtents\": true\n },\n \"aggs\": [\n {\n \"id\": \"1\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"cms_sys_duration\"\n }\n },\n {\n \"id\": \"2\",\n \"type\": \"terms\",\n \"schema\": \"split\",\n \"params\": {\n \"field\": \"host.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\",\n \"row\": true\n }\n },\n {\n \"id\": \"3\",\n \"type\": \"date_histogram\",\n \"schema\": \"segment\",\n \"params\": {\n \"field\": \"@timestamp\",\n \"interval\": \"second\",\n \"min_doc_count\": 1,\n \"extended_bounds\": {}\n }\n },\n {\n \"id\": \"4\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"cms_real_duration\"\n }\n },\n {\n \"id\": \"5\",\n \"type\": \"filters\",\n \"schema\": \"group\",\n \"params\": {\n \"filters\": [\n {\n \"input\": {\n \"query\": {\n \"query_string\": {\n \"query\": \"cms_stage.raw:\\\"Initial Mark\\\"\",\n \"analyze_wildcard\": true\n }\n }\n }\n },\n {\n \"input\": {\n \"query\": {\n \"query_string\": {\n \"query\": \"cms_stage.raw:\\\"concurrent-abortable-preclean\\\"\",\n \"analyze_wildcard\": true\n }\n }\n }\n }\n ]\n }\n },\n {\n \"id\": \"6\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"cms_user_duration\"\n }\n }\n ],\n \"listeners\": {}\n}",
+      "description": "",
+      "savedSearchId": "CMS-Informationen",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "MaxOldGenBlockNumbersBeforeGC",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC CMS: MaxOldGenBlockNumbersBeforeGC",
+      "visState": "{\n \"type\": \"line\",\n \"params\": {\n \"shareYAxis\": true,\n \"addTooltip\": true,\n \"addLegend\": true,\n \"defaultYExtents\": true\n },\n \"aggs\": [\n {\n \"id\": \"1\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"old_gen_block_numbers_before_gc\"\n }\n },\n {\n \"id\": \"2\",\n \"type\": \"terms\",\n \"schema\": \"split\",\n \"params\": {\n \"field\": \"host.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\",\n \"row\": true\n }\n },\n {\n \"id\": \"3\",\n \"type\": \"date_histogram\",\n \"schema\": \"segment\",\n \"params\": {\n \"field\": \"@timestamp\",\n \"interval\": \"second\",\n \"min_doc_count\": 1,\n \"extended_bounds\": {}\n }\n }\n ],\n \"listeners\": {}\n}",
+      "description": "",
+      "savedSearchId": "GC-Informationen",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "CMSOldGenUsedBeforeCMS",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC CMS: OldGenUsedBeforeCMS",
+      "visState": "{\n \"type\": \"line\",\n \"params\": {\n \"shareYAxis\": true,\n \"addTooltip\": true,\n \"addLegend\": true,\n \"defaultYExtents\": true\n },\n \"aggs\": [\n {\n \"id\": \"1\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"old_gen_used_before_gc\"\n }\n },\n {\n \"id\": \"2\",\n \"type\": \"terms\",\n \"schema\": \"split\",\n \"params\": {\n \"field\": \"host.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\",\n \"row\": true\n }\n },\n {\n \"id\": \"3\",\n \"type\": \"date_histogram\",\n \"schema\": \"segment\",\n \"params\": {\n \"field\": \"@timestamp\",\n \"interval\": \"auto\",\n \"min_doc_count\": 1,\n \"extended_bounds\": {}\n }\n }\n ],\n \"listeners\": {}\n}",
+      "description": "",
+      "savedSearchId": "CMS-Informationen",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "CMSTableStats",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC CMS: TableStats",
+      "visState": "{\n \"type\": \"table\",\n \"params\": {\n \"perPage\": 4,\n \"showPartialRows\": false,\n \"showMeticsAtAllLevels\": false\n },\n \"aggs\": [\n {\n \"id\": \"1\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"cms_total_duration\"\n }\n },\n {\n \"id\": \"2\",\n \"type\": \"terms\",\n \"schema\": \"bucket\",\n \"params\": {\n \"field\": \"host.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\"\n }\n },\n {\n \"id\": \"4\",\n \"type\": \"sum\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"cms_total_duration\"\n }\n },\n {\n \"id\": \"3\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"cms_cpu_duration\"\n }\n },\n {\n \"id\": \"5\",\n \"type\": \"sum\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"cms_cpu_duration\"\n }\n },\n {\n \"id\": \"7\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"old_gen_used_before_gc\"\n }\n }\n ],\n \"listeners\": {}\n}",
+      "description": "",
+      "savedSearchId": "Cassandra CMS-Informationen",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "CMSStagePie",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC CMS: StagePie",
+      "visState": "{\n \"type\": \"pie\",\n \"params\": {\n \"shareYAxis\": true,\n \"addTooltip\": true,\n \"addLegend\": true,\n \"isDonut\": false\n },\n \"aggs\": [\n {\n \"id\": \"1\",\n \"type\": \"sum\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"cms_total_duration\"\n }\n },\n {\n \"id\": \"2\",\n \"type\": \"terms\",\n \"schema\": \"split\",\n \"params\": {\n \"field\": \"host.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\",\n \"row\": false\n }\n },\n {\n \"id\": \"3\",\n \"type\": \"terms\",\n \"schema\": \"segment\",\n \"params\": {\n \"field\": \"cms_stage.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\"\n }\n }\n ],\n \"listeners\": {}\n}",
+      "description": "",
+      "savedSearchId": "CMS-Informationen",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "GCInspectorTableStats",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC CMS: InspectorTableStats",
+      "visState": "{\n \"type\": \"table\",\n \"params\": {\n \"perPage\": 8,\n \"showPartialRows\": false,\n \"showMeticsAtAllLevels\": false\n },\n \"aggs\": [\n {\n \"id\": \"1\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"gc_duration\"\n }\n },\n {\n \"id\": \"2\",\n \"type\": \"sum\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"gc_duration\"\n }\n },\n {\n \"id\": \"3\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"gc_collections\"\n }\n },\n {\n \"id\": \"4\",\n \"type\": \"sum\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"gc_collections\"\n }\n },\n {\n \"id\": \"5\",\n \"type\": \"terms\",\n \"schema\": \"bucket\",\n \"params\": {\n \"field\": \"host.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\"\n }\n },\n {\n \"id\": \"6\",\n \"type\": \"terms\",\n \"schema\": \"bucket\",\n \"params\": {\n \"field\": \"gc_type\",\n \"size\": 5,\n \"order\": \"desc\",\n \"orderBy\": \"1\"\n }\n }\n ],\n \"listeners\": {}\n}",
+      "description": "",
+      "savedSearchId": "GCInspector",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "CMSDuration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC CMS: allgemeine Informationen",
+      "visState": "{\n \"type\": \"histogram\",\n \"params\": {\n \"shareYAxis\": true,\n \"addTooltip\": true,\n \"addLegend\": true,\n \"mode\": \"stacked\",\n \"defaultYExtents\": true\n },\n \"aggs\": [\n {\n \"id\": \"1\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"cms_total_duration\"\n }\n },\n {\n \"id\": \"2\",\n \"type\": \"terms\",\n \"schema\": \"split\",\n \"params\": {\n \"field\": \"host.raw\",\n \"size\": 20,\n \"order\": \"desc\",\n \"orderBy\": \"1\",\n \"row\": true\n }\n },\n {\n \"id\": \"3\",\n \"type\": \"date_histogram\",\n \"schema\": \"segment\",\n \"params\": {\n \"field\": \"@timestamp\",\n \"interval\": \"second\",\n \"min_doc_count\": 1,\n \"extended_bounds\": {}\n }\n },\n {\n \"id\": \"4\",\n \"type\": \"max\",\n \"schema\": \"metric\",\n \"params\": {\n \"field\": \"cms_cpu_duration\"\n }\n },\n {\n \"id\": \"5\",\n \"type\": \"terms\",\n \"schema\": \"group\",\n \"params\": {\n \"field\": \"cms_stage.raw\",\n \"size\": 10,\n \"order\": \"desc\",\n \"orderBy\": \"1\"\n }\n }\n ],\n \"listeners\": {}\n}",
+      "description": "",
+      "savedSearchId": "GC CMS: allgemeine Informationen",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "Test",
+    "_type": "visualization",
+    "_source": {
+      "title": "Cassandra GC CMS: GCInspector Statistiken",
+      "visState": "{\n \"type\": \"markdown\",\n \"params\": {\n \"markdown\": \"GCInspector Statistiken\"\n },\n \"aggs\": [],\n \"listeners\": {}\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"query\": {\n    \"query_string\": {\n      \"query\": \"*\",\n      \"analyze_wildcard\": true\n    }\n  },\n  \"filter\": []\n}"
+      }
+    }
+  }
+]
